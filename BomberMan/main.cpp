@@ -1,24 +1,19 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <Menu.h>
+
+using namespace std;
+using namespace sf;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    const int Width = 1400;
+    const int Height = 800;
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+    RenderWindow window(VideoMode(Width, Height), "Bomber Man");
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+    Menu menu(Width, Height);
 
-    return 0;
+    menu.launchMenu(window);
+
 }
