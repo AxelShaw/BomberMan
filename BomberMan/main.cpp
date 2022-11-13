@@ -12,7 +12,10 @@ int main()
 
     RenderWindow window(VideoMode(Width, Height), "Bomber Man");
 
+    Player pla;
+    cout<<pla.str()<<endl;
     Menu menu(Width, Height);
+
 
     menu.launchMenu(window);
 
