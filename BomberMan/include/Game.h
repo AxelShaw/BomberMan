@@ -14,8 +14,6 @@ class Game
 
         void launchGame(RenderWindow& window);
 
-    protected:
-
     private:
 };
 
