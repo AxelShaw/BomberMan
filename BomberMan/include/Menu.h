@@ -15,6 +15,7 @@ class Menu
         void moveUp();
         void MoveDown();
         int GetPressedItem();
+        void StartGame(RenderWindow& window);
 
     private:
         int selectItem;

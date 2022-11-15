@@ -2,29 +2,12 @@
 
 Game::Game()
 {
-    this->initVariables();
-    this->initWindow();
-}
-void Game::initVariables(){
-    this->window = nullptr;
+    //ctor
 }
 
 Game::~Game()
 {
-    delete this window;
-}
-
-
-const bool Game::getWindowIsOpen() const{
-    return this->window->isOpen();
-}
-
-void Game::initWindow(){
-
-    this->vdMode.height = 800;
-    this->vdMode.width = 1400;
-    this->window = new sf::RenderWindow(this->vdMode, "Game");
-
+    //dtor
 }
 
 Game::Game(const Game& other)
@@ -39,25 +22,24 @@ Game& Game::operator=(const Game& rhs)
     return *this;
 }
 
-void Game::pollEvent(){
-    while(this->window->pollEvent(this->event)){
-        switch(this->event.type){
+void Game::launchGame(RenderWindow& window)
+{
+    // 60fps
+    window.setFramerateLimit(60);
 
-            case sf::Event::Closed:
-                this->window.close();
-                break;
-            case sf::Event::KeyPressed:
-                if(this->event.key.code == sf::Keyboard::Escape)
-                this->window.close();
-                break;
-
+    while (window.isOpen())
+    {
+        Event event;
+        while (window.pollEvent(event))
+        {
+            switch (event.type){
+                case Event::Closed:
+                    window.close();
+                    break;
+            }
         }
-    }
 
-}
-void Game::update(){
-    this->pollEvent();
-}
-void Game::render(){
-    this->window->clear(sf::Color(255,0,0,255));
+        window.clear();
+        window.display();
+    }
 }

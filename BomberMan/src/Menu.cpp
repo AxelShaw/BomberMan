@@ -1,12 +1,16 @@
 #include "Menu.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <Game.h>
 
 using namespace sf;
 
 Texture bgTexture;
 
 Sprite bgSprite;
+
+const int Width = 1400;
+const int Height = 800;
 
 Menu::Menu(float width, float height)
 {
@@ -70,6 +74,7 @@ void Menu::launchMenu(RenderWindow& window)
                         case Keyboard::Return:
                             switch(GetPressedItem()){
                                 case 0:
+                                    StartGame(window);
                                     break;
                                 case 1:
                                     break;
@@ -119,4 +124,11 @@ void Menu::MoveDown(){
 
 int Menu::GetPressedItem(){
     return selectItem;
+}
+
+void Menu::StartGame(RenderWindow& window){
+    window.close();
+    RenderWindow windowGame(VideoMode(Width, Height), "BomberMan - Game");
+    Game game;
+    game.launchGame(windowGame);
 }

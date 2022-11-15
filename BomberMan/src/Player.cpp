@@ -7,7 +7,7 @@ using namespace std;
 using namespace sf;
 
 
-Player::Player(int nbVie, string Pseudo, bool IsAlive;)
+Player::Player(int nbVie, string Pseudo, bool IsAlive)
 {
     this->nbVie=nbVie;
     this->Pseudo=Pseudo;
@@ -40,9 +40,7 @@ int Player::getNbVie(){
 
 string Player::str()const
 {
-    res = "player " + Pseudo;
-
-    return res;
+    return "test";
 }
 
 

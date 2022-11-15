@@ -20,14 +20,14 @@ class Player : public sf::Drawable
         Texture texture;
 
     public:
-        Player(nbVie = 3, string Pseudo="okok");
+        Player(int nbVie = 3, string Pseudo="okok", bool IsAlive = 1);
         virtual ~Player();
         Player(const Player& other);
         Player& operator=(const Player& other);
         void SetTexture(sf::Texture& texture);
         int getNbVie();
 
-        string str()const
+        string str()const;
 
 };
 
