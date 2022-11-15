@@ -1,4 +1,11 @@
 #include "Game.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+using namespace sf;
+
+Texture wallTexture;
+Sprite wallSprite;
 
 Game::Game()
 {
@@ -27,19 +34,30 @@ void Game::launchGame(RenderWindow& window)
     // 60fps
     window.setFramerateLimit(60);
 
+    setImage();
+
     while (window.isOpen())
     {
         Event event;
         while (window.pollEvent(event))
         {
-            switch (event.type){
-                case Event::Closed:
+            if(event.type == Event::Closed){
                     window.close();
-                    break;
             }
         }
 
         window.clear();
+        window.draw(wallSprite);
         window.display();
     }
+}
+
+void Game::setImage(){
+
+    if(!wallTexture.loadFromFile("res/img/wall.png"))
+    {
+        //handler error image
+    }
+
+    wallSprite.setTexture(wallTexture);
 }
