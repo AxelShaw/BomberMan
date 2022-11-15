@@ -9,8 +9,8 @@ Texture bgTexture;
 
 Sprite bgSprite;
 
-const int Width = 1400;
-const int Height = 800;
+const int WidthGame = 750;
+const int HeightGame = 650;
 
 Menu::Menu(float width, float height)
 {
@@ -128,7 +128,7 @@ int Menu::GetPressedItem(){
 
 void Menu::StartGame(RenderWindow& window){
     window.close();
-    RenderWindow windowGame(VideoMode(Width, Height), "BomberMan - Game");
+    RenderWindow windowGame(VideoMode(WidthGame, HeightGame), "BomberMan - Game");
     Game game;
     game.launchGame(windowGame);
 }

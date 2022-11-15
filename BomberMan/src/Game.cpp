@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include<GameWord.h>
 
 using namespace sf;
 
@@ -36,6 +37,8 @@ void Game::launchGame(RenderWindow& window)
 
     setImage();
 
+    GameWord gameWord = GameWord();
+
     while (window.isOpen())
     {
         Event event;
@@ -47,7 +50,13 @@ void Game::launchGame(RenderWindow& window)
         }
 
         window.clear();
-        window.draw(wallSprite);
+        for(int i = 0 ; i<gameWord.gridHeight; i++){
+            for(int j = 0 ; j<gameWord.gridLenght; j++){
+                window.draw(gameWord.tiles[i][j]->sprite);
+            }
+        }
+
+
         window.display();
     }
 }

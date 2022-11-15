@@ -6,6 +6,9 @@ using namespace sf;
 
 #define MAX 3
 
+const int Width = 1400;
+const int Height = 800;
+
 class Menu
 {
     public:

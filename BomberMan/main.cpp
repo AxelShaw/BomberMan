@@ -7,8 +7,7 @@ using namespace sf;
 
 int main()
 {
-    const int Width = 1400;
-    const int Height = 800;
+
 
 
     RenderWindow window(VideoMode(Width, Height), "Bomber Man");
