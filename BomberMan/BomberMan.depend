@@ -825,14 +825,15 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1668524920 /home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/include/Menu.h
+1668526270 /home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/include/Menu.h
 	<SFML/Graphics.hpp>
 
-1668525971 source:/home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/src/Menu.cpp
+1668526270 source:/home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/src/Menu.cpp
 	"Menu.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Game.h>
+	<About.h>
 
 1668516296 source:/home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/src/Player.cpp
 	"Player.h"
@@ -845,7 +846,7 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1668519055 /home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/include/Game.h
+1668526270 /home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/include/Game.h
 	<SFML/Graphics.hpp>
 
 1668524959 source:/home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/src/Game.cpp
@@ -912,5 +913,8 @@
 	"Menu.h"
 
 1668525102 /home/clymento/Documents/GitHub/BomberMan/include/About.h
+	<SFML/Graphics.hpp>
+
+1668526270 /home/axelshaw/Documents/GitHub-test/BomberMan/BomberMan/include/About.h
 	<SFML/Graphics.hpp>
 

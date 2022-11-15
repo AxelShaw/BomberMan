@@ -4,9 +4,6 @@
 
 using namespace sf;
 
-const int Width = 1400;
-const int Height = 800;
-
 
 About::About()
 {
