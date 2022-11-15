@@ -2,28 +2,30 @@
 #define PLAYER_H
 #include<string>
 #include<iostream>
+#include <SFML/Graphics.hpp>
+
+using namespace sf;
 
 using namespace std;
 
 
-class Player
+class Player : public sf::Drawable
 {
 
 
     private:
         int nbVie;
-        int nbBombe;
         string Pseudo;
-
+        bool IsAlive;
+        Texture texture;
 
     public:
-        Player(nbVie = 3, int nbBombe = 5, string Pseudo="okok");
+        Player(nbVie = 3, string Pseudo="okok");
         virtual ~Player();
         Player(const Player& other);
         Player& operator=(const Player& other);
-
+        void SetTexture(sf::Texture& texture);
         int getNbVie();
-        int getNbBombe();
 
         string str()const
 

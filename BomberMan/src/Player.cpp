@@ -1,15 +1,19 @@
 #include "Player.h"
 #include<string>
 #include<iostream>
+#include <SFML/Graphics.hpp>
 
 using namespace std;
+using namespace sf;
 
-Player::Player(int nbVie, int nbBombe, string Pseudo)
+
+Player::Player(int nbVie, string Pseudo, bool IsAlive;)
 {
     this->nbVie=nbVie;
-    this->nbBombe=nbBombe;
     this->Pseudo=Pseudo;
+    this->IsAlive=IsAlive;
 }
+
 
 Player::~Player()
 {
@@ -32,9 +36,7 @@ Player& Player::operator=(const Player& rhs)
 int Player::getNbVie(){
     return nbVie;
 }
-int Player::getNbBombe(){
-    return nbBombe;
-}
+
 
 string Player::str()const
 {
@@ -42,3 +44,5 @@ string Player::str()const
 
     return res;
 }
+
+
