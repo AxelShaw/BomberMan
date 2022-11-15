@@ -16,8 +16,6 @@ class Game
 
         void setImage();
 
-    protected:
-
     private:
 };
 

@@ -19,6 +19,7 @@ class Menu
         void MoveDown();
         int GetPressedItem();
         void StartGame(RenderWindow& window);
+        void StartAbout(RenderWindow& window);
 
     private:
         int selectItem;

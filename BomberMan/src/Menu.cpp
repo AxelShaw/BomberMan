@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <Game.h>
+#include <About.h>
 
 using namespace sf;
 
@@ -77,6 +78,7 @@ void Menu::launchMenu(RenderWindow& window)
                                     StartGame(window);
                                     break;
                                 case 1:
+                                    StartAbout(window);
                                     break;
                                 case 2:
                                     window.close();
@@ -131,4 +133,11 @@ void Menu::StartGame(RenderWindow& window){
     RenderWindow windowGame(VideoMode(WidthGame, HeightGame), "BomberMan - Game");
     Game game;
     game.launchGame(windowGame);
+}
+
+void Menu::StartAbout(RenderWindow& window){
+    window.close();
+    RenderWindow windowAbout(VideoMode(Width, Height), "BomberMan - About");
+    About about;
+    about.launchAbout(windowAbout);
 }
