@@ -26,6 +26,8 @@ class GameWord
         void setUpTiles();
         void setUpPlayers();
 
+        void setUpVectorBox(vector<vector<int> > &v);
+
 };
 
 #endif // GAMEWORD_H
