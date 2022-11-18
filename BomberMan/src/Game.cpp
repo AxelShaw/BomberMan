@@ -13,7 +13,7 @@ Sprite playerSprite;
 
 Game::Game()
 {
-    //ctor
+
 }
 
 Game::~Game()
@@ -42,6 +42,7 @@ void Game::launchGame(RenderWindow& window)
 
     GameWord gameWord = GameWord();
 
+
     while (window.isOpen())
     {
         Event event;
@@ -53,6 +54,7 @@ void Game::launchGame(RenderWindow& window)
         }
 
         window.clear();
+
         for(int i = 0 ; i<gameWord.gridHeight; i++){
             for(int j = 0 ; j<gameWord.gridLenght; j++){
                 window.draw(gameWord.tiles[i][j]->sprite);
@@ -60,14 +62,14 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-        window.draw(gameWord.players[50][200]->spriteP);
-
-
-
 
         window.display();
     }
+    window.draw(gameWord.players[500][200]->spriteP);
+    window.display();
 }
+
+
 
 void Game::setImage(){
 

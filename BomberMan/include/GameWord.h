@@ -22,8 +22,10 @@ class GameWord
     private:
         void setUpInitialState();
         void setUpInitialPlayer();
+
         void setUpTiles();
         void setUpPlayers();
+
 };
 
 #endif // GAMEWORD_H
