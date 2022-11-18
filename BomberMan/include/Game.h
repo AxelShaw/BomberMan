@@ -19,10 +19,11 @@ class Game
         void launchGame(RenderWindow& window);
 
         void setImage();
-        void MoveUp();
-        void MoveDown();
-        void MoveRight();
-        void MoveLeft();
+        void setPlayer();
+        void MoveUp(Sprite spritePs);
+        void MoveDown(Sprite spritePs);
+        void MoveRight(Sprite spritePs);
+        void MoveLeft(Sprite spritePs);
 
     private:
         Player* player;

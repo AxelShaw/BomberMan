@@ -18,21 +18,13 @@ class Player
         int nbVie;
         string Pseudo;
         bool IsAlive;
-        Texture texture;
-        bool up;
-        bool down;
-        bool right;
-        bool left;
-        Sprite spriteP;
+
+        Sprite sprite;
 
     public:
-        Player(Sprite spriteP,int nbVie, string Pseudo, bool IsAlive);
+        Player(int nbVie, string Pseudo, bool IsAlive);
         virtual ~Player();
-        bool setUpSprite(string textureName);
         int getNbVie();
-        void processEvents(Keyboard key, bool checkPressed );
-        void update();
-        Sprite getSprite();
 
 
 

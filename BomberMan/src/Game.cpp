@@ -7,10 +7,12 @@
 using namespace sf;
 
 Texture wallTexture;
-Texture playerTexture;
+Texture playerTexture1;
+Texture playerTexture2;
 
 Sprite wallSprite;
-Sprite spriteP;
+Sprite spriteP1;
+Sprite spriteP2;
 
 Game::Game()
 {
@@ -39,29 +41,14 @@ Game& Game::operator=(const Game& rhs)
 
 void Game::launchGame(RenderWindow& window)
 {
-
-    if(!playerTexture.loadFromFile("res/img/player.png"))
-    {
-        //handler error image
-    }
-
-    spriteP.setTexture(playerTexture);
-
-    Player player(spriteP,3,"P1",true);
-    spriteP.setPosition(Vector2f(0,0));
-
-
-
     // 60fps
     window.setFramerateLimit(60);
 
     setImage();
 
+    Player player1(3,"P1",true);
+
     GameWord gameWord = GameWord();
-
-
-
-
 
     while (window.isOpen())
     {
@@ -71,26 +58,48 @@ void Game::launchGame(RenderWindow& window)
             if(event.type == Event::Closed){
                     window.close();
             }
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::Up)
-                {
-                    MoveUp();
-                }
-                if (event.key.code == sf::Keyboard::Down)
-                {
-                    MoveDown();
-                }
-                if (event.key.code == sf::Keyboard::Right)
-                {
-                    MoveRight();
-                }
-                if (event.key.code == sf::Keyboard::Left)
-                {
-                    MoveLeft();
-                }
-            }
+        }
 
+        if(Keyboard::isKeyPressed(Keyboard::Up)){
+            Vector2f movement;
+            movement.y -=3.5;
+            spriteP1.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Down)){
+            Vector2f movement;
+            movement.y +=3.5;
+            spriteP1.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Right)){
+            Vector2f movement;
+            movement.x +=3.5;
+            spriteP1.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Left)){
+            Vector2f movement;
+            movement.x -=3.5;
+            spriteP1.move(movement);
+        }
+
+        if(Keyboard::isKeyPressed(Keyboard::Z)){
+            Vector2f movement;
+            movement.y -=3.5;
+            spriteP2.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::S)){
+            Vector2f movement;
+            movement.y +=3.5;
+            spriteP2.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::D)){
+            Vector2f movement;
+            movement.x +=3.5;
+            spriteP2.move(movement);
+        }
+        if(Keyboard::isKeyPressed(Keyboard::Q)){
+            Vector2f movement;
+            movement.x -=3.5;
+            spriteP2.move(movement);
         }
 
         window.clear();
@@ -102,40 +111,11 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-
-        window.draw(spriteP);
+        window.draw(spriteP1);
+        window.draw(spriteP2);
         window.display();
     }
 }
-void Game::MoveDown(){
-    Vector2f movement;
-    movement.y +=5.0;
-
-    player->getSprite().move(movement);
-}
-void Game::MoveUp(){
-    Vector2f movement;
-    movement.y -=5.0;
-
-    player->getSprite().move(movement);
-}
-
-void Game::MoveRight(){
-    Vector2f movement;
-    movement.x +=5.0;
-
-    player->getSprite().move(movement);
-
-}
-void Game::MoveLeft(){
-    Vector2f movement;
-    movement.x -=5.0;
-
-    player->getSprite().move(movement);
-
-}
-
-
 
 void Game::setImage(){
 
@@ -143,11 +123,21 @@ void Game::setImage(){
     {
         //handler error image
     }
-    if(!playerTexture.loadFromFile("res/img/player.png"))
+    if(!playerTexture1.loadFromFile("res/img/player.png"))
+    {
+        //handler error image
+    }
+
+    if(!playerTexture2.loadFromFile("res/img/player.png"))
     {
         //handler error image
     }
 
     wallSprite.setTexture(wallTexture);
-    spriteP.setTexture(playerTexture);
+    spriteP1.setTexture(playerTexture1);
+    spriteP1.setPosition(55,55);
+
+    spriteP2.setTexture(playerTexture2);
+    spriteP2.setPosition(655,555);
+
 }
