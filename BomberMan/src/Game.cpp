@@ -14,8 +14,7 @@ Sprite spriteP;
 
 Game::Game()
 {
-    setUpPlayers();
-    setUpInitialPlayer();
+
 
 }
 
@@ -35,13 +34,8 @@ Game& Game::operator=(const Game& rhs)
     //assignment operator
     return *this;
 }
-void Game::setUpPlayers(){
 
-}
 
-void Game::setUpInitialPlayer(){
-    setUpPlayers();
-}
 
 void Game::launchGame(RenderWindow& window)
 {
@@ -53,6 +47,9 @@ void Game::launchGame(RenderWindow& window)
 
     spriteP.setTexture(playerTexture);
 
+    Player player(spriteP,3,"P1",true);
+    spriteP.setPosition(Vector2f(0,0));
+
 
 
     // 60fps
@@ -61,7 +58,7 @@ void Game::launchGame(RenderWindow& window)
     setImage();
 
     GameWord gameWord = GameWord();
-    Game game = Game();
+
 
 
 
@@ -74,6 +71,26 @@ void Game::launchGame(RenderWindow& window)
             if(event.type == Event::Closed){
                     window.close();
             }
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Up)
+                {
+                    MoveUp();
+                }
+                if (event.key.code == sf::Keyboard::Down)
+                {
+                    MoveDown();
+                }
+                if (event.key.code == sf::Keyboard::Right)
+                {
+                    MoveRight();
+                }
+                if (event.key.code == sf::Keyboard::Left)
+                {
+                    MoveLeft();
+                }
+            }
+
         }
 
         window.clear();
@@ -85,11 +102,37 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-        Player player(spriteP,3,"P1",true);
-        spriteP.setPosition(Vector2f(0,0));
+
         window.draw(spriteP);
         window.display();
     }
+}
+void Game::MoveDown(){
+    Vector2f movement;
+    movement.y +=5.0;
+
+    player->getSprite().move(movement);
+}
+void Game::MoveUp(){
+    Vector2f movement;
+    movement.y -=5.0;
+
+    player->getSprite().move(movement);
+}
+
+void Game::MoveRight(){
+    Vector2f movement;
+    movement.x +=5.0;
+
+    player->getSprite().move(movement);
+
+}
+void Game::MoveLeft(){
+    Vector2f movement;
+    movement.x -=5.0;
+
+    player->getSprite().move(movement);
+
 }
 
 

@@ -32,6 +32,7 @@ class Player
         int getNbVie();
         void processEvents(Keyboard key, bool checkPressed );
         void update();
+        Sprite getSprite();
 
 
 
