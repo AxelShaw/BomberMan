@@ -8,11 +8,14 @@ using namespace sf;
 
 Texture wallTexture;
 Texture playerTexture;
+
 Sprite wallSprite;
-Sprite playerSprite;
+Sprite spriteP;
 
 Game::Game()
 {
+    setUpPlayers();
+    setUpInitialPlayer();
 
 }
 
@@ -32,15 +35,35 @@ Game& Game::operator=(const Game& rhs)
     //assignment operator
     return *this;
 }
+void Game::setUpPlayers(){
+
+}
+
+void Game::setUpInitialPlayer(){
+    setUpPlayers();
+}
 
 void Game::launchGame(RenderWindow& window)
 {
+
+    if(!playerTexture.loadFromFile("res/img/player.png"))
+    {
+        //handler error image
+    }
+
+    spriteP.setTexture(playerTexture);
+
+
+
     // 60fps
     window.setFramerateLimit(60);
 
     setImage();
 
     GameWord gameWord = GameWord();
+    Game game = Game();
+
+
 
 
     while (window.isOpen())
@@ -62,11 +85,11 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-
+        Player player(spriteP,3,"P1",true);
+        spriteP.setPosition(Vector2f(0,0));
+        window.draw(spriteP);
         window.display();
     }
-    window.draw(gameWord.players[500][200]->spriteP);
-    window.display();
 }
 
 
@@ -83,5 +106,5 @@ void Game::setImage(){
     }
 
     wallSprite.setTexture(wallTexture);
-    playerSprite.setTexture(playerTexture);
+    spriteP.setTexture(playerTexture);
 }

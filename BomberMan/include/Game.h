@@ -19,8 +19,11 @@ class Game
         void launchGame(RenderWindow& window);
 
         void setImage();
+        void setUpPlayers();
+        void setUpInitialPlayer();
 
     private:
+        Player* player;
 };
 
 #endif // GAME_H
