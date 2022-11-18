@@ -4,30 +4,30 @@
 #include<iostream>
 #include <SFML/Graphics.hpp>
 
+
 using namespace sf;
 
 using namespace std;
 
 
-class Player : public sf::Drawable
+class Player
 {
 
 
     private:
+        Vector2f pos;
         int nbVie;
         string Pseudo;
         bool IsAlive;
         Texture texture;
 
     public:
-        Player(int nbVie = 3, string Pseudo="okok", bool IsAlive = 1);
+        Player(string texturePlayer,float x,float y,int nbVie, string Pseudo, bool IsAlive);
         virtual ~Player();
-        Player(const Player& other);
-        Player& operator=(const Player& other);
-        void SetTexture(sf::Texture& texture);
+        bool setUpSprite(string textureName);
         int getNbVie();
+        Sprite spriteP;
 
-        string str()const;
 
 };
 

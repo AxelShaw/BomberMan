@@ -9,6 +9,7 @@ GameWord::GameWord()
     gridLenght = 15;
     gridHeight = 13;
     setUpInitialState();
+    setUpInitialPlayer();
 }
 
 GameWord::~GameWord()
@@ -18,6 +19,17 @@ GameWord::~GameWord()
 
 void GameWord::setUpInitialState(){
     setUpTiles();
+}
+void GameWord::setUpInitialPlayer(){
+    setUpPlayers();
+}
+
+void GameWord::setUpPlayers(){
+    players.clear();
+    std::vector<Player *> Spawn;
+    Spawn.push_back(new Player("res/img/player.png",100,150,3,"P1",true));
+    Spawn.push_back(new Player("res/img/player.png",50,0,3,"P2",true));
+    players.push_back(Spawn);
 }
 
 void GameWord::setUpTiles(){

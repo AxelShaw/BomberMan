@@ -2,11 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include<GameWord.h>
+#include<Player.h>
 
 using namespace sf;
 
 Texture wallTexture;
+Texture playerTexture;
 Sprite wallSprite;
+Sprite playerSprite;
 
 Game::Game()
 {
@@ -53,8 +56,13 @@ void Game::launchGame(RenderWindow& window)
         for(int i = 0 ; i<gameWord.gridHeight; i++){
             for(int j = 0 ; j<gameWord.gridLenght; j++){
                 window.draw(gameWord.tiles[i][j]->sprite);
+
             }
         }
+
+        window.draw(gameWord.players[50][200]->spriteP);
+
+
 
 
         window.display();
@@ -67,6 +75,11 @@ void Game::setImage(){
     {
         //handler error image
     }
+    if(!playerTexture.loadFromFile("res/img/player.png"))
+    {
+        //handler error image
+    }
 
     wallSprite.setTexture(wallTexture);
+    playerSprite.setTexture(playerTexture);
 }

@@ -15,7 +15,6 @@ class Game
         void launchGame(RenderWindow& window);
 
         void setImage();
-
     private:
 };
 
