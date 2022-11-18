@@ -25,6 +25,8 @@ class GameWord
 
         void setUpTiles();
 
+        void setUpVectorBox(vector<vector<int> > &v);
+
 
 };
 
