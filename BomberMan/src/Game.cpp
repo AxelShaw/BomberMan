@@ -8,9 +8,11 @@ using namespace sf;
 
 Texture playerTexture1;
 Texture playerTexture2;
+Texture bombTexture;
 
 Sprite spriteP1;
 Sprite spriteP2;
+Sprite spriteBomb;
 
 Game::Game()
 {
@@ -71,8 +73,20 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
+
         window.draw(spriteP1);
         window.draw(spriteP2);
+
+        if(Keyboard::isKeyPressed(Keyboard::Space)){
+            window.draw(spriteBomb);
+            spriteBomb.setPosition(spriteP2.getPosition());
+
+        }
+        if(Keyboard::isKeyPressed(Keyboard::M)){
+            window.draw(spriteBomb);
+            spriteBomb.setPosition(spriteP1.getPosition());
+
+        }
         window.display();
     }
 }
@@ -88,12 +102,19 @@ void Game::setImage(){
     {
         //handler error image
     }
+    if(!bombTexture.loadFromFile("res/img/bomb.png"))
+    {
+        //handler error image
+    }
 
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
+
+    spriteBomb.setTexture(bombTexture);
+
 
 }
 
