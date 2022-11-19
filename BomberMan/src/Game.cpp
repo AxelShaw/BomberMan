@@ -9,10 +9,12 @@ using namespace sf;
 Texture playerTexture1;
 Texture playerTexture2;
 Texture bombTexture;
+Texture bombTexture2;
 
 Sprite spriteP1;
 Sprite spriteP2;
 Sprite spriteBomb;
+Sprite spriteBomb2;
 
 Game::Game()
 {
@@ -65,6 +67,25 @@ void Game::launchGame(RenderWindow& window)
 
         setMouvement(gameWord);
 
+        if(Keyboard::isKeyPressed(Keyboard::Space)){
+            for(int i = 0 ; i<gameWord.gridHeight; i++){
+                for(int j = 0 ; j<gameWord.gridLenght; j++){
+                    if(spriteP1.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds())){
+                        spriteBomb.setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
+                    }
+                }
+            }
+        }
+        if(Keyboard::isKeyPressed(Keyboard::M)){
+            for(int i = 0 ; i<gameWord.gridHeight; i++){
+                for(int j = 0 ; j<gameWord.gridLenght; j++){
+                    if(spriteP2.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds())){
+                        spriteBomb2.setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
+                    }
+                }
+            }
+        }
+
         window.clear();
 
         for(int i = 0 ; i<gameWord.gridHeight; i++){
@@ -73,20 +94,10 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-
+        window.draw(spriteBomb);
+        window.draw(spriteBomb2);
         window.draw(spriteP1);
         window.draw(spriteP2);
-
-        if(Keyboard::isKeyPressed(Keyboard::Space)){
-            window.draw(spriteBomb);
-            spriteBomb.setPosition(spriteP2.getPosition());
-
-        }
-        if(Keyboard::isKeyPressed(Keyboard::M)){
-            window.draw(spriteBomb);
-            spriteBomb.setPosition(spriteP1.getPosition());
-
-        }
         window.display();
     }
 }
@@ -107,6 +118,11 @@ void Game::setImage(){
         //handler error image
     }
 
+    if(!bombTexture2.loadFromFile("res/img/bomb.png"))
+    {
+        //handler error image
+    }
+
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
@@ -114,6 +130,10 @@ void Game::setImage(){
     spriteP2.setPosition(655,555);
 
     spriteBomb.setTexture(bombTexture);
+    spriteBomb.setPosition(-100,-100);
+
+    spriteBomb2.setTexture(bombTexture2);
+    spriteBomb2.setPosition(-100,-100);
 
 
 }

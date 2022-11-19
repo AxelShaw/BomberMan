@@ -44,6 +44,7 @@
 			<Add library="sfml-system" />
 		</Linker>
 		<Unit filename="include/About.h" />
+		<Unit filename="include/Bomb.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameTile.h" />
 		<Unit filename="include/GameWord.h" />
@@ -51,6 +52,7 @@
 		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/About.cpp" />
+		<Unit filename="src/Bomb.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameTile.cpp" />
 		<Unit filename="src/GameWord.cpp" />
