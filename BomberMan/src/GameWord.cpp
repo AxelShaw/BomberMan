@@ -42,7 +42,7 @@ void GameWord::setUpTiles(){
                      Row.push_back(new GameTile("res/img/wall.png",50*i,j*50,false));
                 }else{
                     if(i==1 || i == gridHeight){
-                        Row.push_back(new GameTile("res/img/grass.png",50*i,j*50,false));
+                        Row.push_back(new GameTile("res/img/grass.png",50*i,j*50,true));
                     }else{
                         Row.push_back(new GameTile("res/img/box.png",50*i,j*50,false));
                     }
@@ -52,7 +52,7 @@ void GameWord::setUpTiles(){
                 if(boxplacemnt[i][j] == 1){
                     Row.push_back(new GameTile("res/img/box.png",50*i,j*50,false));
                 }else{
-                    Row.push_back(new GameTile("res/img/grass.png",50*i,j*50,false));
+                    Row.push_back(new GameTile("res/img/grass.png",50*i,j*50,true));
                 }
 
             }

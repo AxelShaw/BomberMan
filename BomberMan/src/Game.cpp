@@ -6,11 +6,9 @@
 
 using namespace sf;
 
-Texture wallTexture;
 Texture playerTexture1;
 Texture playerTexture2;
 
-Sprite wallSprite;
 Sprite spriteP1;
 Sprite spriteP2;
 
@@ -56,58 +54,20 @@ void Game::launchGame(RenderWindow& window)
         while (window.pollEvent(event))
         {
             if(event.type == Event::Closed){
-                    window.close();
+                window.close();
+            }
+            if(Keyboard::isKeyPressed(Keyboard::Escape)){
+                window.close();
             }
         }
 
-        if(Keyboard::isKeyPressed(Keyboard::Up)){
-            Vector2f movement;
-            movement.y -=3.5;
-            spriteP1.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::Down)){
-            Vector2f movement;
-            movement.y +=3.5;
-            spriteP1.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::Right)){
-            Vector2f movement;
-            movement.x +=3.5;
-            spriteP1.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::Left)){
-            Vector2f movement;
-            movement.x -=3.5;
-            spriteP1.move(movement);
-        }
-
-        if(Keyboard::isKeyPressed(Keyboard::Z)){
-            Vector2f movement;
-            movement.y -=3.5;
-            spriteP2.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::S)){
-            Vector2f movement;
-            movement.y +=3.5;
-            spriteP2.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::D)){
-            Vector2f movement;
-            movement.x +=3.5;
-            spriteP2.move(movement);
-        }
-        if(Keyboard::isKeyPressed(Keyboard::Q)){
-            Vector2f movement;
-            movement.x -=3.5;
-            spriteP2.move(movement);
-        }
+        setMouvement(gameWord);
 
         window.clear();
 
         for(int i = 0 ; i<gameWord.gridHeight; i++){
             for(int j = 0 ; j<gameWord.gridLenght; j++){
                 window.draw(gameWord.tiles[i][j]->sprite);
-
             }
         }
 
@@ -119,10 +79,6 @@ void Game::launchGame(RenderWindow& window)
 
 void Game::setImage(){
 
-    if(!wallTexture.loadFromFile("res/img/wall.png"))
-    {
-        //handler error image
-    }
     if(!playerTexture1.loadFromFile("res/img/player.png"))
     {
         //handler error image
@@ -133,11 +89,74 @@ void Game::setImage(){
         //handler error image
     }
 
-    wallSprite.setTexture(wallTexture);
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
 
+}
+
+void Game::setMouvement(GameWord gameWord){
+    Vector2f movement2;
+    if(Keyboard::isKeyPressed(Keyboard::Up)){
+        movement2.y -=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Down)){
+        movement2.y +=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Right)){
+        movement2.x +=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Left)){
+        movement2.x -=velocity;
+    }
+
+    for(int i = 0 ; i<gameWord.gridHeight; i++){
+        for(int j = 0 ; j<gameWord.gridLenght; j++){
+            if(!gameWord.tiles[i][j]->getPassable()){
+                FloatRect playerBounds = spriteP2.getGlobalBounds();
+                FloatRect wallBounds = gameWord.tiles[i][j]->sprite.getGlobalBounds();
+                nextPos = playerBounds;
+                nextPos.left += movement2.x;
+                nextPos.top += movement2.y;
+                if(wallBounds.intersects(nextPos)){
+                    movement2.x = 0;
+                    movement2.y = 0;
+                }
+            }
+        }
+    }
+    spriteP2.move(movement2);
+
+    Vector2f movement;
+    if(Keyboard::isKeyPressed(Keyboard::Z)){
+        movement.y -=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::S)){
+        movement.y +=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::D)){
+        movement.x +=velocity;
+    }
+    if(Keyboard::isKeyPressed(Keyboard::Q)){
+        movement.x -=velocity;
+    }
+
+    for(int i = 0 ; i<gameWord.gridHeight; i++){
+        for(int j = 0 ; j<gameWord.gridLenght; j++){
+            if(!gameWord.tiles[i][j]->getPassable()){
+                FloatRect playerBounds = spriteP1.getGlobalBounds();
+                FloatRect wallBounds = gameWord.tiles[i][j]->sprite.getGlobalBounds();
+                nextPos = playerBounds;
+                nextPos.left += movement.x;
+                nextPos.top += movement.y;
+                if(wallBounds.intersects(nextPos)){
+                    movement.x = 0;
+                    movement.y = 0;
+                }
+            }
+        }
+    }
+    spriteP1.move(movement);
 }

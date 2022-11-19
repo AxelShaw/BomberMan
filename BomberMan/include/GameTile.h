@@ -14,6 +14,7 @@ class GameTile
         virtual ~GameTile();
         bool setUpSprite(string textureName);
         Sprite sprite;
+        bool getPassable();
 
     private:
         Vector2f pos;

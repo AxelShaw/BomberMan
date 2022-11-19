@@ -4,6 +4,7 @@
 #include <iostream>
 #include<vector>
 #include<Player.h>
+#include<GameWord.h>
 
 using namespace sf;
 using namespace std;
@@ -25,8 +26,11 @@ class Game
         void MoveRight(Sprite spritePs);
         void MoveLeft(Sprite spritePs);
 
+        void setMouvement(GameWord gameWord);
+
     private:
-        Player* player;
+        float velocity = 3;
+        FloatRect nextPos;
 };
 
 #endif // GAME_H

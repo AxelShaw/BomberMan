@@ -29,3 +29,7 @@ bool GameTile::setUpSprite(string textureName){
     sprite.setTextureRect(IntRect(0,0,50,50));
     return true;
 }
+
+bool GameTile::getPassable(){
+    return isPassable;
+}
