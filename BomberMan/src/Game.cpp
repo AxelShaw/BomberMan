@@ -44,6 +44,8 @@ void Game::launchGame(RenderWindow& window)
     // 60fps
     window.setFramerateLimit(60);
 
+    Time secondEnd = seconds(5);
+
     int xpos = 0 ;
     Clock clock50mS;
     Time time50mS;
@@ -79,6 +81,7 @@ void Game::launchGame(RenderWindow& window)
                                 if(spriteP1.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds()) && player1.bombs[k]->getPlace() == false){
                                     player1.bombs[k]->setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
                                     player1.bombs[k]->setPlace(true);
+                                    player1.bombs[k]->clock.restart();
                                     goto jump1;
                                 }
                             }
@@ -95,6 +98,7 @@ void Game::launchGame(RenderWindow& window)
                                 if(spriteP2.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds()) && player2.bombs[k]->getPlace() == false){
                                     player2.bombs[k]->setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
                                     player2.bombs[k]->setPlace(true);
+                                    player2.bombs[k]->clock.restart();
                                     goto jump2;
                                 }
                             }
@@ -116,21 +120,31 @@ void Game::launchGame(RenderWindow& window)
         }
 
         for(int i = 0 ; i<player1.bombs.size(); i++){
+            if(player1.bombs[i]->clock.getElapsedTime() > secondEnd && player1.bombs[i]->getPlace() == true){
+                player1.bombs[i]->setPlace(false);
+                player1.bombs[i]->setPosition(-100,-100);
+            }
             window.draw(player1.bombs[i]->sprite);
         }
 
+
         for(int i = 0 ; i<player2.bombs.size(); i++){
+            if(player2.bombs[i]->clock.getElapsedTime() > secondEnd && player2.bombs[i]->getPlace() == true){
+                player2.bombs[i]->setPlace(false);
+                player2.bombs[i]->setPosition(-100,-100);
+            }
             window.draw(player2.bombs[i]->sprite);
         }
 
 
-        time50mS = clock50mS.getElapsedTime();
-         m50s = time50mS.asMilliseconds();
+
 
         window.draw(spriteP1);
         window.draw(spriteP2);
-
         window.draw(spriteExplo);
+
+        time50mS = clock50mS.getElapsedTime();
+        m50s = time50mS.asMilliseconds();
 
         if(m50s > 50){
             xpos+= 50;

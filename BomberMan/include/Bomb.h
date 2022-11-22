@@ -24,6 +24,8 @@ class Bomb
         bool getPlace();
         void setPlace(bool change);
 
+        Clock clock;
+
 
     private:
         Texture texture;
