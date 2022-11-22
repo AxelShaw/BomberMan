@@ -8,9 +8,11 @@ using namespace sf;
 
 Texture playerTexture1;
 Texture playerTexture2;
+Texture exploTexture;
 
 Sprite spriteP1;
 Sprite spriteP2;
+Sprite spriteExplo;
 
 Game::Game()
 {
@@ -41,6 +43,12 @@ void Game::launchGame(RenderWindow& window)
 {
     // 60fps
     window.setFramerateLimit(60);
+
+    int xpos = 0 ;
+    Clock clock50mS;
+    Time time50mS;
+    clock50mS.restart();
+    double m50s;
 
     setImage();
 
@@ -116,8 +124,24 @@ void Game::launchGame(RenderWindow& window)
         }
 
 
+        time50mS = clock50mS.getElapsedTime();
+         m50s = time50mS.asMilliseconds();
+
         window.draw(spriteP1);
         window.draw(spriteP2);
+
+        window.draw(spriteExplo);
+
+        if(m50s > 50){
+            xpos+= 50;
+            if(xpos>= 350){
+                xpos=0;
+
+            }
+            spriteExplo.setTextureRect(IntRect(xpos,0,50,50));
+            clock50mS.restart();
+        }
+
         window.display();
     }
 }
@@ -133,12 +157,19 @@ void Game::setImage(){
     {
         //handler error image
     }
+    if(!exploTexture.loadFromFile("res/img/macron_explosion.png")){
+        //handler error image
+    }
 
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
+
+    spriteExplo.setTexture(exploTexture);
+    spriteExplo.setTextureRect(IntRect(0,0,50,50));
+    spriteExplo.setPosition(300,300);
 
 }
 

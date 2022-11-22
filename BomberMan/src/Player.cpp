@@ -20,6 +20,7 @@ Player::~Player()
 
 void Player::setUpInitialState(){
     bombs.push_back(new Bomb("res/img/bomb.png",false));
+    bombs.push_back(new Bomb("res/img/bomb.png",false));
 }
 
 
