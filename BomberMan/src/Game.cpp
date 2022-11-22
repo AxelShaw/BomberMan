@@ -8,13 +8,9 @@ using namespace sf;
 
 Texture playerTexture1;
 Texture playerTexture2;
-Texture bombTexture;
-Texture bombTexture2;
 
 Sprite spriteP1;
 Sprite spriteP2;
-Sprite spriteBomb;
-Sprite spriteBomb2;
 
 Game::Game()
 {
@@ -48,9 +44,10 @@ void Game::launchGame(RenderWindow& window)
 
     setImage();
 
-    Player player1(3,"P1",true);
-
     GameWord gameWord = GameWord();
+
+    Player player1 = Player();
+    Player player2 = Player();
 
     while (window.isOpen())
     {
@@ -63,28 +60,44 @@ void Game::launchGame(RenderWindow& window)
             if(Keyboard::isKeyPressed(Keyboard::Escape)){
                 window.close();
             }
+
+            if (event.type == Event::KeyPressed)
+            {
+                if (event.key.code == Keyboard::Space)
+                {
+                    for(int i = 0 ; i<gameWord.gridHeight; i++){
+                       for(int j = 0 ; j<gameWord.gridLenght; j++){
+                            for(int k = 0 ; k<player1.bombs.size(); k++){
+                                if(spriteP1.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds()) && player1.bombs[k]->getPlace() == false){
+                                    player1.bombs[k]->setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
+                                    player1.bombs[k]->setPlace(true);
+                                    goto jump1;
+                                }
+                            }
+                        }
+                    }
+                    jump1:;
+                }
+
+                if (event.key.code == Keyboard::M)
+                {
+                    for(int i = 0 ; i<gameWord.gridHeight; i++){
+                       for(int j = 0 ; j<gameWord.gridLenght; j++){
+                            for(int k = 0 ; k<player2.bombs.size(); k++){
+                                if(spriteP2.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds()) && player2.bombs[k]->getPlace() == false){
+                                    player2.bombs[k]->setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
+                                    player2.bombs[k]->setPlace(true);
+                                    goto jump2;
+                                }
+                            }
+                        }
+                    }
+                    jump2:;
+                }
+            }
         }
 
         setMouvement(gameWord);
-
-        if(Keyboard::isKeyPressed(Keyboard::Space)){
-            for(int i = 0 ; i<gameWord.gridHeight; i++){
-                for(int j = 0 ; j<gameWord.gridLenght; j++){
-                    if(spriteP1.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds())){
-                        spriteBomb.setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
-                    }
-                }
-            }
-        }
-        if(Keyboard::isKeyPressed(Keyboard::M)){
-            for(int i = 0 ; i<gameWord.gridHeight; i++){
-                for(int j = 0 ; j<gameWord.gridLenght; j++){
-                    if(spriteP2.getGlobalBounds().intersects(gameWord.tiles[i][j]->sprite.getGlobalBounds())){
-                        spriteBomb2.setPosition(gameWord.tiles[i][j]->sprite.getPosition().x,gameWord.tiles[i][j]->sprite.getPosition().y);
-                    }
-                }
-            }
-        }
 
         window.clear();
 
@@ -94,8 +107,15 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-        window.draw(spriteBomb);
-        window.draw(spriteBomb2);
+        for(int i = 0 ; i<player1.bombs.size(); i++){
+            window.draw(player1.bombs[i]->sprite);
+        }
+
+        for(int i = 0 ; i<player2.bombs.size(); i++){
+            window.draw(player2.bombs[i]->sprite);
+        }
+
+
         window.draw(spriteP1);
         window.draw(spriteP2);
         window.display();
@@ -113,28 +133,12 @@ void Game::setImage(){
     {
         //handler error image
     }
-    if(!bombTexture.loadFromFile("res/img/bomb.png"))
-    {
-        //handler error image
-    }
-
-    if(!bombTexture2.loadFromFile("res/img/bomb.png"))
-    {
-        //handler error image
-    }
 
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
-
-    spriteBomb.setTexture(bombTexture);
-    spriteBomb.setPosition(-100,-100);
-
-    spriteBomb2.setTexture(bombTexture2);
-    spriteBomb2.setPosition(-100,-100);
-
 
 }
 

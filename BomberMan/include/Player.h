@@ -3,6 +3,8 @@
 #include<string>
 #include<iostream>
 #include <SFML/Graphics.hpp>
+#include<Bomb.h>
+
 
 
 using namespace sf;
@@ -15,17 +17,13 @@ class Player
 
 
     private:
-        int nbVie;
-        string Pseudo;
-        bool IsAlive;
-
-        Sprite sprite;
+        void setUpInitialState();
 
     public:
-        Player(int nbVie, string Pseudo, bool IsAlive);
+        Player();
         virtual ~Player();
-        int getNbVie();
 
+        vector<Bomb *> bombs;
 
 
 

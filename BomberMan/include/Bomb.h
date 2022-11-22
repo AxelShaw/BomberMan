@@ -15,18 +15,21 @@ using namespace std;
 class Bomb
 {
     public:
-        Bomb(string textureName,float x,float y,bool isExplode, int range,int speed);
+        Bomb(string textureName, bool place);
         virtual ~Bomb();
         bool setUpSprite(string textureName);
         Sprite sprite;
+        void setPosition(int x , int y);
+
+        bool getPlace();
+        void setPlace(bool change);
+
 
     private:
-
-        int range;
-        bool isExplode;
-        Vector2f pos;
         Texture texture;
-        int speed;
+        bool place;
+
+
 };
 
 #endif // BOMB_H

@@ -7,13 +7,9 @@ using namespace std;
 using namespace sf;
 
 
-Player::Player(int nbVie, string Pseudo, bool IsAlive)
+Player::Player()
 {
-    this->nbVie = nbVie;
-    this->Pseudo = Pseudo;
-    this->IsAlive = IsAlive;
-
-
+    setUpInitialState();
 }
 
 
@@ -22,10 +18,10 @@ Player::~Player()
     //dtor
 }
 
-
-int Player::getNbVie(){
-    return nbVie;
+void Player::setUpInitialState(){
+    bombs.push_back(new Bomb("res/img/bomb.png",false));
 }
+
 
 
 

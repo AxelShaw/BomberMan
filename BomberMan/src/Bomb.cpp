@@ -3,31 +3,39 @@
 #include <iostream>
 #include <Game.h>
 
-Bomb::Bomb(string textureName,float x , float y,bool isExplode, int range,int speed)
+Bomb::Bomb(string textureName, bool place)
 {
     if(!setUpSprite(textureName)){
-        //error texture load
+            //error texture load
     }
 
-    pos = Vector2f(x,y);
-    sprite.setPosition(pos);
-    this->isExplode = isExplode;
-    this->range = range;
-    this->speed = speed;
-}
+    sprite.setPosition(-100,-100);
 
-bool Bomb::setUpSprite(string textureName){
-    if(!texture.loadFromFile(textureName))
-    {
-        //handler error image
-    }
-    texture.setSmooth(true);
-    sprite.setTexture(texture);
-    sprite.setTextureRect(IntRect(0,0,50,50));
-    return true;
+    this->place = place;
 }
 
 Bomb::~Bomb()
 {
     //dtor
+}
+
+bool Bomb::setUpSprite(string textureName){
+    if(!texture.loadFromFile(textureName))
+        {
+            //handler error image
+        }
+        texture.setSmooth(true);
+        sprite.setTexture(texture);
+    return true;
+}
+
+void Bomb::setPosition(int x , int y){
+    sprite.setPosition(x,y);
+}
+
+bool Bomb::getPlace(){
+    return place;
+}
+void Bomb::setPlace(bool change){
+    place = change;
 }

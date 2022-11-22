@@ -4,7 +4,7 @@
 #include <iostream>
 #include<GameTile.h>
 #include<vector>
-#include<Player.h>
+
 
 using namespace sf;
 

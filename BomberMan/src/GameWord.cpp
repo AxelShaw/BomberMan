@@ -8,17 +8,12 @@ GameWord::GameWord()
 {
     gridLenght = 15;
     gridHeight = 13;
-    setUpInitialState();
     setUpTiles();
 }
 
 GameWord::~GameWord()
 {
     //dtor
-}
-
-void GameWord::setUpInitialState(){
-    setUpTiles();
 }
 
 

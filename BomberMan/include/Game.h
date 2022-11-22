@@ -3,7 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include<vector>
-#include<Player.h>
 #include<GameWord.h>
 
 using namespace sf;
