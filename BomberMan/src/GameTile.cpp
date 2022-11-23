@@ -9,6 +9,8 @@ GameTile::GameTile(string textureName,float x,float y,bool passable){
         //error texture load
     }
 
+    this->textureName = textureName;
+
     pos = Vector2f(x,y);
     sprite.setPosition(pos);
     isPassable = passable;
@@ -32,4 +34,8 @@ bool GameTile::setUpSprite(string textureName){
 
 bool GameTile::getPassable(){
     return isPassable;
+}
+
+string GameTile::getTextureName(){
+    return textureName;
 }

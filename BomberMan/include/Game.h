@@ -30,7 +30,7 @@ class Game
 
         void setMouvement(GameWord gameWord);
 
-        void createExplosion(int x, int y);
+        void createExplosion(int x, int y, GameWord gameWord);
 
         vector<Explosion *> EploP1;
 

@@ -111,7 +111,7 @@ void Game::launchGame(RenderWindow& window)
 
         for(int i = 0 ; i<player1.bombs.size(); i++){
             if(player1.bombs[i]->clock.getElapsedTime() > secondEndBomb && player1.bombs[i]->getPlace() == true){
-                createExplosion(player1.bombs[i]->sprite.getPosition().x,player1.bombs[i]->sprite.getPosition().y);
+                createExplosion(player1.bombs[i]->sprite.getPosition().x,player1.bombs[i]->sprite.getPosition().y,gameWord);
                 player1.bombs[i]->setPlace(false);
                 player1.bombs[i]->setPosition(-100,-100);
             }
@@ -121,12 +121,15 @@ void Game::launchGame(RenderWindow& window)
 
         for(int i = 0 ; i<player2.bombs.size(); i++){
             if(player2.bombs[i]->clock.getElapsedTime() > secondEndBomb && player2.bombs[i]->getPlace() == true){
-                createExplosion(player2.bombs[i]->sprite.getPosition().x,player2.bombs[i]->sprite.getPosition().y);
+                createExplosion(player2.bombs[i]->sprite.getPosition().x,player2.bombs[i]->sprite.getPosition().y,gameWord);
                 player2.bombs[i]->setPlace(false);
                 player2.bombs[i]->setPosition(-100,-100);
             }
             window.draw(player2.bombs[i]->sprite);
         }
+
+        window.draw(spriteP1);
+        window.draw(spriteP2);
 
         for(int i=0; i < EploP1.size() ; i++){
             window.draw(EploP1[i]->sprite);
@@ -142,8 +145,6 @@ void Game::launchGame(RenderWindow& window)
             }
         }
 
-        window.draw(spriteP1);
-        window.draw(spriteP2);
         window.display();
 
     }
@@ -233,12 +234,38 @@ void Game::setMouvement(GameWord gameWord){
     spriteP1.move(movement);
 }
 
-void Game::createExplosion(int x, int y){
+void Game::createExplosion(int x, int y,GameWord gameWord){
 
+    for(int i = 1; i <= 1 ; i++){
+        EploP1.push_back(new Explosion());
+        EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
+        EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+        EploP1[EploP1.size()-1]->clock.restart();
 
-    EploP1.push_back(new Explosion());
-    EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
-    EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-    EploP1[EploP1.size()-1]->clock.restart();
+        if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() != "res/img/wall.png"){
+            EploP1.push_back(new Explosion());
+            EploP1[EploP1.size()-1]->sprite.setPosition(x,y+(50*i));
+            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+            EploP1[EploP1.size()-1]->clock.restart();
+        }
 
+        if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() != "res/img/wall.png"){
+            EploP1.push_back(new Explosion());
+            EploP1[EploP1.size()-1]->sprite.setPosition(x,y-(50*i));
+            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+            EploP1[EploP1.size()-1]->clock.restart();
+        }
+        if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() != "res/img/wall.png"){
+            EploP1.push_back(new Explosion());
+            EploP1[EploP1.size()-1]->sprite.setPosition(x+(50*i),y);
+            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+            EploP1[EploP1.size()-1]->clock.restart();
+        }
+        if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() != "res/img/wall.png"){
+            EploP1.push_back(new Explosion());
+            EploP1[EploP1.size()-1]->sprite.setPosition(x-(50*i),y);
+            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+            EploP1[EploP1.size()-1]->clock.restart();
+        }
+    }
 }
