@@ -19,6 +19,8 @@ class Explosion
         Clock clock;
         int xpos=0;
 
+        Time anime = milliseconds(50);
+
     private:
         Texture texture;
 };

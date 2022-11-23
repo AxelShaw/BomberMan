@@ -133,8 +133,11 @@ void Game::launchGame(RenderWindow& window)
             if(EploP1[i]->clock.getElapsedTime() > secondEndExp){
                 EploP1.erase(EploP1.begin() + i);
             }else{
-                EploP1[i]->xpos = EploP1[i]->xpos + 50;
-                EploP1[i]->sprite.setTextureRect(IntRect(EploP1[i]->xpos,0,50,50));
+                if(EploP1[i]->clock.getElapsedTime() > EploP1[i]->anime){
+                    EploP1[i]->xpos = EploP1[i]->xpos + 50;
+                    EploP1[i]->sprite.setTextureRect(IntRect(EploP1[i]->xpos,0,50,50));
+                    EploP1[i]->anime = EploP1[i]->anime + milliseconds(50);
+                }
 
             }
         }
