@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <vector>
 #include<GameWord.h>
 #include<Player.h>
 
@@ -8,15 +9,12 @@ using namespace sf;
 
 Texture playerTexture1;
 Texture playerTexture2;
-Texture exploTexture;
 
 Sprite spriteP1;
 Sprite spriteP2;
-Sprite spriteExplo;
 
 Game::Game()
 {
-
 
 }
 
@@ -43,14 +41,6 @@ void Game::launchGame(RenderWindow& window)
 {
     // 60fps
     window.setFramerateLimit(60);
-
-    Time secondEnd = seconds(5);
-
-    int xpos = 0 ;
-    Clock clock50mS;
-    Time time50mS;
-    clock50mS.restart();
-    double m50s;
 
     setImage();
 
@@ -120,7 +110,8 @@ void Game::launchGame(RenderWindow& window)
         }
 
         for(int i = 0 ; i<player1.bombs.size(); i++){
-            if(player1.bombs[i]->clock.getElapsedTime() > secondEnd && player1.bombs[i]->getPlace() == true){
+            if(player1.bombs[i]->clock.getElapsedTime() > secondEndBomb && player1.bombs[i]->getPlace() == true){
+                createExplosion(player1.bombs[i]->sprite.getPosition().x,player1.bombs[i]->sprite.getPosition().y);
                 player1.bombs[i]->setPlace(false);
                 player1.bombs[i]->setPosition(-100,-100);
             }
@@ -129,34 +120,29 @@ void Game::launchGame(RenderWindow& window)
 
 
         for(int i = 0 ; i<player2.bombs.size(); i++){
-            if(player2.bombs[i]->clock.getElapsedTime() > secondEnd && player2.bombs[i]->getPlace() == true){
+            if(player2.bombs[i]->clock.getElapsedTime() > secondEndBomb && player2.bombs[i]->getPlace() == true){
+                createExplosion(player2.bombs[i]->sprite.getPosition().x,player2.bombs[i]->sprite.getPosition().y);
                 player2.bombs[i]->setPlace(false);
                 player2.bombs[i]->setPosition(-100,-100);
             }
             window.draw(player2.bombs[i]->sprite);
         }
 
+        for(int i=0; i < EploP1.size() ; i++){
+            window.draw(EploP1[i]->sprite);
+            if(EploP1[i]->clock.getElapsedTime() > secondEndExp){
+                EploP1.erase(EploP1.begin() + i);
+            }else{
+                EploP1[i]->xpos = EploP1[i]->xpos + 50;
+                EploP1[i]->sprite.setTextureRect(IntRect(EploP1[i]->xpos,0,50,50));
 
-
+            }
+        }
 
         window.draw(spriteP1);
         window.draw(spriteP2);
-        window.draw(spriteExplo);
-
-        time50mS = clock50mS.getElapsedTime();
-        m50s = time50mS.asMilliseconds();
-
-        if(m50s > 50){
-            xpos+= 50;
-            if(xpos>= 350){
-                xpos=0;
-
-            }
-            spriteExplo.setTextureRect(IntRect(xpos,0,50,50));
-            clock50mS.restart();
-        }
-
         window.display();
+
     }
 }
 
@@ -171,19 +157,12 @@ void Game::setImage(){
     {
         //handler error image
     }
-    if(!exploTexture.loadFromFile("res/img/macron_explosion.png")){
-        //handler error image
-    }
 
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
-
-    spriteExplo.setTexture(exploTexture);
-    spriteExplo.setTextureRect(IntRect(0,0,50,50));
-    spriteExplo.setPosition(300,300);
 
 }
 
@@ -249,4 +228,14 @@ void Game::setMouvement(GameWord gameWord){
         }
     }
     spriteP1.move(movement);
+}
+
+void Game::createExplosion(int x, int y){
+
+
+    EploP1.push_back(new Explosion());
+    EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
+    EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+    EploP1[EploP1.size()-1]->clock.restart();
+
 }

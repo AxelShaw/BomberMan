@@ -86,11 +86,15 @@ void Menu::launchMenu(RenderWindow& window)
                             }
 
                             break;
+                        default:
+                            break;
                     }
                     break;
 
                 case Event::Closed:
                     window.close();
+                    break;
+                default:
                     break;
             }
         }

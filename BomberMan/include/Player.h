@@ -5,8 +5,6 @@
 #include <SFML/Graphics.hpp>
 #include<Bomb.h>
 
-
-
 using namespace sf;
 
 using namespace std;

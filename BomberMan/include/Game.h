@@ -1,12 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
+#include<string>
+#include<iostream>
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include<vector>
+#include<Explosion.h>
 #include<GameWord.h>
 
 using namespace sf;
 using namespace std;
+
+class Explosion;
 
 class Game
 {
@@ -26,6 +29,15 @@ class Game
         void MoveLeft(Sprite spritePs);
 
         void setMouvement(GameWord gameWord);
+
+        void createExplosion(int x, int y);
+
+        vector<Explosion *> EploP1;
+
+        Time secondEndBomb = seconds(5);
+
+        Time secondEndExp = milliseconds(350);
+
 
     private:
         float velocity = 3;
