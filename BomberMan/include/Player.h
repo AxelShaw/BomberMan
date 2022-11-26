@@ -16,10 +16,12 @@ class Player
 
     private:
         void setUpInitialState();
+        int rangeBomb;
 
     public:
-        Player();
+        Player(int rangeBomb);
         virtual ~Player();
+        int getRangeBomb();
 
         vector<Bomb *> bombs;
 

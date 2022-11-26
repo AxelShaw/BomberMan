@@ -46,8 +46,8 @@ void Game::launchGame(RenderWindow& window)
 
     GameWord gameWord = GameWord();
 
-    Player player1 = Player();
-    Player player2 = Player();
+    Player player1 = Player(1);
+    Player player2 = Player(1);
 
     while (window.isOpen())
     {
@@ -111,7 +111,7 @@ void Game::launchGame(RenderWindow& window)
 
         for(int i = 0 ; i<player1.bombs.size(); i++){
             if(player1.bombs[i]->clock.getElapsedTime() > secondEndBomb && player1.bombs[i]->getPlace() == true){
-                createExplosion(player1.bombs[i]->sprite.getPosition().x,player1.bombs[i]->sprite.getPosition().y,gameWord);
+                createExplosion(player1.bombs[i]->sprite.getPosition().x,player1.bombs[i]->sprite.getPosition().y,gameWord, player1.getRangeBomb());
                 player1.bombs[i]->setPlace(false);
                 player1.bombs[i]->setPosition(-100,-100);
             }
@@ -121,7 +121,7 @@ void Game::launchGame(RenderWindow& window)
 
         for(int i = 0 ; i<player2.bombs.size(); i++){
             if(player2.bombs[i]->clock.getElapsedTime() > secondEndBomb && player2.bombs[i]->getPlace() == true){
-                createExplosion(player2.bombs[i]->sprite.getPosition().x,player2.bombs[i]->sprite.getPosition().y,gameWord);
+                createExplosion(player2.bombs[i]->sprite.getPosition().x,player2.bombs[i]->sprite.getPosition().y,gameWord, player2.getRangeBomb());
                 player2.bombs[i]->setPlace(false);
                 player2.bombs[i]->setPosition(-100,-100);
             }
@@ -234,13 +234,13 @@ void Game::setMouvement(GameWord gameWord){
     spriteP1.move(movement);
 }
 
-void Game::createExplosion(int x, int y,GameWord gameWord){
+void Game::createExplosion(int x, int y,GameWord gameWord, int range){
     bool end1 = false;
     bool end2 = false;
     bool end3 = false;
     bool end4 = false;
 
-    for(int i = 1; i <= 1 ; i++){
+    for(int i = 1; i <= range ; i++){
         if(i == 1){
             EploP1.push_back(new Explosion());
             EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
