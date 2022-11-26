@@ -32,7 +32,7 @@ class Game
 
         void createExplosion(int x, int y, GameWord gameWord, int range);
 
-        vector<Explosion *> EploP1;
+        vector<Explosion *> EploP;
 
         Time secondEndBomb = seconds(5);
 

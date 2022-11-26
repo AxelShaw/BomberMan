@@ -131,15 +131,15 @@ void Game::launchGame(RenderWindow& window)
         window.draw(spriteP1);
         window.draw(spriteP2);
 
-        for(int i=0; i < EploP1.size() ; i++){
-            window.draw(EploP1[i]->sprite);
-            if(EploP1[i]->clock.getElapsedTime() > secondEndExp){
-                EploP1.erase(EploP1.begin() + i);
+        for(int i=0; i < EploP.size() ; i++){
+            window.draw(EploP[i]->sprite);
+            if(EploP[i]->clock.getElapsedTime() > secondEndExp){
+                EploP.erase(EploP.begin() + i);
             }else{
-                if(EploP1[i]->clock.getElapsedTime() > EploP1[i]->anime){
-                    EploP1[i]->xpos = EploP1[i]->xpos + 50;
-                    EploP1[i]->sprite.setTextureRect(IntRect(EploP1[i]->xpos,0,50,50));
-                    EploP1[i]->anime = EploP1[i]->anime + milliseconds(50);
+                if(EploP[i]->clock.getElapsedTime() > EploP[i]->anime){
+                    EploP[i]->xpos = EploP[i]->xpos + 50;
+                    EploP[i]->sprite.setTextureRect(IntRect(EploP[i]->xpos,0,50,50));
+                    EploP[i]->anime = EploP[i]->anime + milliseconds(50);
                 }
 
             }
@@ -148,6 +148,11 @@ void Game::launchGame(RenderWindow& window)
         window.display();
 
     }
+    EploP.clear();
+    player2.bombs.clear();
+    player1.bombs.clear();
+    gameWord.tiles.clear();
+
 }
 
 void Game::setImage(){
@@ -242,18 +247,18 @@ void Game::createExplosion(int x, int y,GameWord gameWord, int range){
 
     for(int i = 1; i <= range ; i++){
         if(i == 1){
-            EploP1.push_back(new Explosion());
-            EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
-            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-            EploP1[EploP1.size()-1]->clock.restart();
+            EploP.push_back(new Explosion());
+            EploP[EploP.size()-1]->sprite.setPosition(x,y);
+            EploP[EploP.size()-1]->sprite.setTextureRect(IntRect(EploP[EploP.size()-1]->xpos,0,50,50));
+            EploP[EploP.size()-1]->clock.restart();
         }
 
         if(y/50+1*i < gameWord.gridHeight && end1 == false){
             if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() != "res/img/wall.png"){
-                EploP1.push_back(new Explosion());
-                EploP1[EploP1.size()-1]->sprite.setPosition(x,y+(50*i));
-                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-                EploP1[EploP1.size()-1]->clock.restart();
+                EploP.push_back(new Explosion());
+                EploP[EploP.size()-1]->sprite.setPosition(x,y+(50*i));
+                EploP[EploP.size()-1]->sprite.setTextureRect(IntRect(EploP[EploP.size()-1]->xpos,0,50,50));
+                EploP[EploP.size()-1]->clock.restart();
                 if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() == "res/img/box.png"){
                     gameWord.tiles[y/50+1*i][x/50]->SetTextureName();
                 }
@@ -263,10 +268,10 @@ void Game::createExplosion(int x, int y,GameWord gameWord, int range){
         }
         if(y/50-1*i < gameWord.gridHeight && end2 == false){
             if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() != "res/img/wall.png"){
-                EploP1.push_back(new Explosion());
-                EploP1[EploP1.size()-1]->sprite.setPosition(x,y-(50*i));
-                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-                EploP1[EploP1.size()-1]->clock.restart();
+                EploP.push_back(new Explosion());
+                EploP[EploP.size()-1]->sprite.setPosition(x,y-(50*i));
+                EploP[EploP.size()-1]->sprite.setTextureRect(IntRect(EploP[EploP.size()-1]->xpos,0,50,50));
+                EploP[EploP.size()-1]->clock.restart();
                 if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() == "res/img/box.png"){
                     gameWord.tiles[y/50-1*i][x/50]->SetTextureName();
                 }
@@ -277,10 +282,10 @@ void Game::createExplosion(int x, int y,GameWord gameWord, int range){
 
         if(x/50+1*i < gameWord.gridLenght && end3 == false){
             if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() != "res/img/wall.png"){
-                EploP1.push_back(new Explosion());
-                EploP1[EploP1.size()-1]->sprite.setPosition(x+(50*i),y);
-                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-                EploP1[EploP1.size()-1]->clock.restart();
+                EploP.push_back(new Explosion());
+                EploP[EploP.size()-1]->sprite.setPosition(x+(50*i),y);
+                EploP[EploP.size()-1]->sprite.setTextureRect(IntRect(EploP[EploP.size()-1]->xpos,0,50,50));
+                EploP[EploP.size()-1]->clock.restart();
                 if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() == "res/img/box.png"){
                     gameWord.tiles[y/50][x/50+1*i]->SetTextureName();
                 }
@@ -290,10 +295,10 @@ void Game::createExplosion(int x, int y,GameWord gameWord, int range){
         }
         if(x/50-1*i < gameWord.gridLenght && end4 == false){
             if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() != "res/img/wall.png"){
-                EploP1.push_back(new Explosion());
-                EploP1[EploP1.size()-1]->sprite.setPosition(x-(50*i),y);
-                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-                EploP1[EploP1.size()-1]->clock.restart();
+                EploP.push_back(new Explosion());
+                EploP[EploP.size()-1]->sprite.setPosition(x-(50*i),y);
+                EploP[EploP.size()-1]->sprite.setTextureRect(IntRect(EploP[EploP.size()-1]->xpos,0,50,50));
+                EploP[EploP.size()-1]->clock.restart();
                 if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() == "res/img/box.png"){
                     gameWord.tiles[y/50][x/50-1*i]->SetTextureName();
                 }

@@ -15,5 +15,4 @@ int main()
     Menu menu(Width, Height);
 
     menu.launchMenu(window);
-
 }

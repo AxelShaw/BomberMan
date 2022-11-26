@@ -63,7 +63,6 @@ void GameWord::setUpTiles(){
         Row.push_back(new GameTile("res/img/wall.png",50*i,50*(gridHeight-1),false));
     }
     tiles.push_back(Row);
-
 }
 
 void GameWord::setUpVectorBox(vector<vector<int> >& v){

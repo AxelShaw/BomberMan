@@ -16,7 +16,6 @@ Player::Player(int rangeBomb)
 
 Player::~Player()
 {
-    //dtor
 }
 
 void Player::setUpInitialState(){
