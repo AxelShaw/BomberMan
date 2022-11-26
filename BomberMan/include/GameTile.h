@@ -10,12 +10,13 @@ using namespace std;
 class GameTile
 {
     public:
-        GameTile(string textureName,float x,float y,bool passable);
+        GameTile(string textureName,int x,int y,bool passable);
         virtual ~GameTile();
         bool setUpSprite(string textureName);
         Sprite sprite;
         bool getPassable();
         string getTextureName();
+        void SetTextureName();
 
     private:
         Vector2f pos;

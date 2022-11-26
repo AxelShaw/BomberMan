@@ -4,7 +4,7 @@
 
 using namespace sf;
 
-GameTile::GameTile(string textureName,float x,float y,bool passable){
+GameTile::GameTile(string textureName,int x,int y,bool passable){
     if(!setUpSprite(textureName)){
         //error texture load
     }
@@ -38,4 +38,17 @@ bool GameTile::getPassable(){
 
 string GameTile::getTextureName(){
     return textureName;
+}
+
+void GameTile::SetTextureName(){
+    textureName = "res/img/grass.png";
+
+    if(!texture.loadFromFile(textureName))
+    {
+        //handler error image
+    }
+    texture.setSmooth(true);
+    sprite.setTexture(texture);
+    sprite.setTextureRect(IntRect(0,0,50,50));
+    isPassable = true;
 }

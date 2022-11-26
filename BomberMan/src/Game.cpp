@@ -235,37 +235,71 @@ void Game::setMouvement(GameWord gameWord){
 }
 
 void Game::createExplosion(int x, int y,GameWord gameWord){
+    bool end1 = false;
+    bool end2 = false;
+    bool end3 = false;
+    bool end4 = false;
 
     for(int i = 1; i <= 1 ; i++){
-        EploP1.push_back(new Explosion());
-        EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
-        EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-        EploP1[EploP1.size()-1]->clock.restart();
-
-        if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() != "res/img/wall.png"){
+        if(i == 1){
             EploP1.push_back(new Explosion());
-            EploP1[EploP1.size()-1]->sprite.setPosition(x,y+(50*i));
+            EploP1[EploP1.size()-1]->sprite.setPosition(x,y);
             EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
             EploP1[EploP1.size()-1]->clock.restart();
         }
 
-        if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() != "res/img/wall.png"){
-            EploP1.push_back(new Explosion());
-            EploP1[EploP1.size()-1]->sprite.setPosition(x,y-(50*i));
-            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-            EploP1[EploP1.size()-1]->clock.restart();
+        if(y/50+1*i < gameWord.gridHeight && end1 == false){
+            if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() != "res/img/wall.png"){
+                EploP1.push_back(new Explosion());
+                EploP1[EploP1.size()-1]->sprite.setPosition(x,y+(50*i));
+                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+                EploP1[EploP1.size()-1]->clock.restart();
+                if(gameWord.tiles[y/50+1*i][x/50]->getTextureName() == "res/img/box.png"){
+                    gameWord.tiles[y/50+1*i][x/50]->SetTextureName();
+                }
+            }else{
+                end1 = true;
+            }
         }
-        if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() != "res/img/wall.png"){
-            EploP1.push_back(new Explosion());
-            EploP1[EploP1.size()-1]->sprite.setPosition(x+(50*i),y);
-            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-            EploP1[EploP1.size()-1]->clock.restart();
+        if(y/50-1*i < gameWord.gridHeight && end2 == false){
+            if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() != "res/img/wall.png"){
+                EploP1.push_back(new Explosion());
+                EploP1[EploP1.size()-1]->sprite.setPosition(x,y-(50*i));
+                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+                EploP1[EploP1.size()-1]->clock.restart();
+                if(gameWord.tiles[y/50-1*i][x/50]->getTextureName() == "res/img/box.png"){
+                    gameWord.tiles[y/50-1*i][x/50]->SetTextureName();
+                }
+            }else{
+                end2 = true;
+            }
         }
-        if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() != "res/img/wall.png"){
-            EploP1.push_back(new Explosion());
-            EploP1[EploP1.size()-1]->sprite.setPosition(x-(50*i),y);
-            EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
-            EploP1[EploP1.size()-1]->clock.restart();
+
+        if(x/50+1*i < gameWord.gridLenght && end3 == false){
+            if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() != "res/img/wall.png"){
+                EploP1.push_back(new Explosion());
+                EploP1[EploP1.size()-1]->sprite.setPosition(x+(50*i),y);
+                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+                EploP1[EploP1.size()-1]->clock.restart();
+                if(gameWord.tiles[y/50][x/50+1*i]->getTextureName() == "res/img/box.png"){
+                    gameWord.tiles[y/50][x/50+1*i]->SetTextureName();
+                }
+            }else{
+                end3 = true;
+            }
+        }
+        if(x/50-1*i < gameWord.gridLenght && end4 == false){
+            if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() != "res/img/wall.png"){
+                EploP1.push_back(new Explosion());
+                EploP1[EploP1.size()-1]->sprite.setPosition(x-(50*i),y);
+                EploP1[EploP1.size()-1]->sprite.setTextureRect(IntRect(EploP1[EploP1.size()-1]->xpos,0,50,50));
+                EploP1[EploP1.size()-1]->clock.restart();
+                if(gameWord.tiles[y/50][x/50-1*i]->getTextureName() == "res/img/box.png"){
+                    gameWord.tiles[y/50][x/50-1*i]->SetTextureName();
+                }
+            }else{
+                end4 = true;
+            }
         }
     }
 }

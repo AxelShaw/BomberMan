@@ -1,5 +1,5 @@
 #include "Menu.h"
-#include <SFML/Graphics.hpp>
+
 #include <iostream>
 #include <Game.h>
 #include <About.h>
