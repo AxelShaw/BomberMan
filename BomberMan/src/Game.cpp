@@ -143,24 +143,32 @@ void Game::launchGame(RenderWindow& window)
             }
             if(spriteP1.getGlobalBounds().intersects(EploP[i]->sprite.getGlobalBounds())){
                 PlayerTouch();
-                player1 = Player(1);
-                player2 = Player(1);
+                player1 = Player(1, player1.takeDamage());
+                player2 = Player(1, player2.getVie());
                 player2.getBomb().clear();
                 player1.getBomb().clear();
                 player1.setUpInitialState();
                 player2.setUpInitialState();
+
             }
 
              if(spriteP2.getGlobalBounds().intersects(EploP[i]->sprite.getGlobalBounds())){
                 PlayerTouch();
-                player1 = Player(1);
-                player2 = Player(1);
+                player1 = Player(1, player1.getVie());
+                player2 = Player(1, player2.takeDamage());
                 player2.getBomb().clear();
                 player1.getBomb().clear();
                 player1.setUpInitialState();
                 player2.setUpInitialState();
             }
 
+        }
+
+        if(player1.getVie() == 0){
+            window.close();
+        }
+        if(player2.getVie() == 0){
+            window.close();
         }
 
         window.display();

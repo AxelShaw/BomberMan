@@ -7,10 +7,11 @@ using namespace std;
 using namespace sf;
 
 
-Player::Player(int rangeBomb)
+Player::Player(int rangeBomb, int vie)
 {
     setUpInitialState();
     this->rangeBomb = rangeBomb;
+    this->vie = vie;
 }
 
 
@@ -28,6 +29,14 @@ int Player::getRangeBomb(){
 
 vector<Bomb *> Player::getBomb(){
     return bombs;
+}
+
+int Player::takeDamage(){
+    return vie - 1;
+}
+
+int Player::getVie(){
+    return vie;
 }
 
 

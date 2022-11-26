@@ -15,13 +15,16 @@ class Player
     private:
         int rangeBomb;
         vector<Bomb *> bombs;
+        int vie;
 
     public:
-        Player(int rangeBomb);
+        Player(int rangeBomb, int vie=3);
         virtual ~Player();
         int getRangeBomb();
         void setUpInitialState();
         vector<Bomb *> getBomb();
+        int takeDamage();
+        int getVie();
 };
 
 #endif // PLAYER_H
