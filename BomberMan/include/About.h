@@ -7,6 +7,11 @@ using namespace sf;
 
 class About
 {
+    private:
+        RectangleShape rect;
+        Text text[7];
+        Font font;
+
     public:
         About();
         virtual ~About();
@@ -14,11 +19,6 @@ class About
         About& operator=(const About& other);
         void launchAbout(RenderWindow& window);
         void StartMenu(RenderWindow& window);
-
-    private:
-        RectangleShape rect;
-        Text text[7];
-        Font font;
 };
 
 #endif // ABOUT_H

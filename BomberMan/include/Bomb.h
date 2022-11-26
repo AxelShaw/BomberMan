@@ -10,24 +10,20 @@ using namespace std;
 
 class Bomb
 {
+    private:
+        Texture texture;
+        bool place;
+        Sprite sprite;
+
     public:
         Bomb(string textureName, bool place);
         virtual ~Bomb();
         bool setUpSprite(string textureName);
-        Sprite sprite;
+        Sprite getSprite();
         void setPosition(int x , int y);
-
         bool getPlace();
         void setPlace(bool change);
-
         Clock clock;
-
-
-    private:
-        Texture texture;
-        bool place;
-
-
 };
 
 #endif // BOMB_H

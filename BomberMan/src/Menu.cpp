@@ -1,8 +1,5 @@
 #include "Menu.h"
 
-#include <iostream>
-#include <Game.h>
-#include <About.h>
 
 using namespace sf;
 

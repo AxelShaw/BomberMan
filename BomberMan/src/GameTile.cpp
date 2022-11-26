@@ -52,3 +52,7 @@ void GameTile::SetTextureName(){
     sprite.setTextureRect(IntRect(0,0,50,50));
     isPassable = true;
 }
+
+Sprite GameTile::getSprite(){
+    return sprite;
+}

@@ -1,6 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <Game.h>
+#include <About.h>
 
 using namespace sf;
 
@@ -11,6 +14,11 @@ const int Height = 800;
 
 class Menu
 {
+    private:
+        int selectItem;
+        Font font;
+        Text menuText[MAX];
+
     public:
         Menu(float width, float height);
         virtual ~Menu();
@@ -20,12 +28,6 @@ class Menu
         int GetPressedItem();
         void StartGame(RenderWindow& window);
         void StartAbout(RenderWindow& window);
-
-    private:
-        int selectItem;
-        Font font;
-        Text menuText[MAX];
-
 };
 
 #endif // MENU_H

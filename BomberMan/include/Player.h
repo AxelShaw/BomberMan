@@ -12,21 +12,16 @@ using namespace std;
 
 class Player
 {
-
-
     private:
-        void setUpInitialState();
         int rangeBomb;
+        vector<Bomb *> bombs;
 
     public:
         Player(int rangeBomb);
         virtual ~Player();
         int getRangeBomb();
-
-        vector<Bomb *> bombs;
-
-
-
+        void setUpInitialState();
+        vector<Bomb *> getBomb();
 };
 
 #endif // PLAYER_H

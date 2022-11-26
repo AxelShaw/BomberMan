@@ -23,3 +23,11 @@ bool Explosion::setUpSprite(string textureName){
         sprite.setTexture(texture);
     return true;
 }
+
+int Explosion::getXpos(){
+    return xpos;
+}
+
+void Explosion::setXpos(int x){
+    this->xpos = x;
+}

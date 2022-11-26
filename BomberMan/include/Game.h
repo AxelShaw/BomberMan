@@ -13,35 +13,29 @@ class Explosion;
 
 class Game
 {
+    private:
+        float velocity = 3;
+        FloatRect nextPos;
+
     public:
         Game();
         virtual ~Game();
         Game(const Game& other);
         Game& operator=(const Game& other);
-
         void launchGame(RenderWindow& window);
-
         void setImage();
         void setPlayer();
         void MoveUp(Sprite spritePs);
         void MoveDown(Sprite spritePs);
         void MoveRight(Sprite spritePs);
         void MoveLeft(Sprite spritePs);
-
-        void setMouvement(GameWord gameWord);
-
-        void createExplosion(int x, int y, GameWord gameWord, int range);
-
+        void setMouvement();
+        void createExplosion(int x, int y, int range);
         vector<Explosion *> EploP;
-
         Time secondEndBomb = seconds(5);
-
         Time secondEndExp = milliseconds(350);
-
-
-    private:
-        float velocity = 3;
-        FloatRect nextPos;
+        void PlayerTouch();
+        GameWord gameWord = GameWord();
 };
 
 #endif // GAME_H

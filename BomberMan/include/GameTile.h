@@ -9,20 +9,21 @@ using namespace std;
 
 class GameTile
 {
-    public:
-        GameTile(string textureName,int x,int y,bool passable);
-        virtual ~GameTile();
-        bool setUpSprite(string textureName);
-        Sprite sprite;
-        bool getPassable();
-        string getTextureName();
-        void SetTextureName();
-
     private:
         Vector2f pos;
         Texture texture;
         bool isPassable;
         string textureName;
+        Sprite sprite;
+
+    public:
+        GameTile(string textureName,int x,int y,bool passable);
+        virtual ~GameTile();
+        bool setUpSprite(string textureName);
+        Sprite getSprite();
+        bool getPassable();
+        string getTextureName();
+        void SetTextureName();
 };
 
 #endif // GAMETILE_H

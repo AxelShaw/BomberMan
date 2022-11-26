@@ -103,3 +103,7 @@ void GameWord::setUpVectorBox(vector<vector<int> >& v){
     }
 }
 
+vector< vector<GameTile *>> GameWord::getTiles(){
+    return tiles;
+}
+

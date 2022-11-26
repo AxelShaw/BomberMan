@@ -11,23 +11,18 @@ using namespace sf;
 
 class GameWord
 {
+    private:
+        void setUpInitialState();
+        void setUpTiles();
+        void setUpVectorBox(vector<vector<int> > &v);
+        vector< vector<GameTile *>> tiles;
+
     public:
         GameWord();
         virtual ~GameWord();
-        vector< vector<GameTile *>> tiles;
-
         int gridLenght;
         int gridHeight;
-
-    private:
-        void setUpInitialState();
-
-
-        void setUpTiles();
-
-        void setUpVectorBox(vector<vector<int> > &v);
-
-
+        vector< vector<GameTile *>> getTiles();
 };
 
 #endif // GAMEWORD_H

@@ -1,7 +1,6 @@
 #include "Bomb.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <Game.h>
 
 Bomb::Bomb(string textureName, bool place)
 {
@@ -38,4 +37,8 @@ bool Bomb::getPlace(){
 }
 void Bomb::setPlace(bool change){
     place = change;
+}
+
+Sprite Bomb::getSprite(){
+    return sprite;
 }

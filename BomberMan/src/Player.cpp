@@ -26,6 +26,10 @@ int Player::getRangeBomb(){
     return rangeBomb;
 }
 
+vector<Bomb *> Player::getBomb(){
+    return bombs;
+}
+
 
 
 
