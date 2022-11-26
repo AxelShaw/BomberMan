@@ -47,6 +47,23 @@ void Game::launchGame(RenderWindow& window)
     Player player1 = Player(1);
     Player player2 = Player(1);
 
+
+    if(!font.loadFromFile("res/fonts/OpenSans-Regular.ttf"))
+    {
+        //hadler error
+    }
+    for(int i=0; i < 4 ; i++){
+        text[i].setFont(font);
+        text[i].setColor(Color::White);
+    }
+    text[0].setString("Vie : ");
+    text[0].setPosition(10,0);
+    text[1].setString("Vie : ");
+    text[1].setPosition(650,605);
+    text[2].setPosition(75,1);
+    text[3].setPosition(715,606);
+
+
     while (window.isOpen())
     {
         Event event;
@@ -169,6 +186,12 @@ void Game::launchGame(RenderWindow& window)
         }
         if(player2.getVie() == 0){
             window.close();
+        }
+
+        for(int i=0; i < 4 ; i++){
+            text[2].setString(to_string(player1.getVie()));
+            text[3].setString(to_string(player2.getVie()));
+            window.draw(text[i]);
         }
 
         window.display();
