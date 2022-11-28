@@ -39,6 +39,17 @@ int Player::getVie(){
     return vie;
 }
 
+void Player::setUpLife(int nb){
+    for(int i = 0; i < nb ; i++){
+        lifes.push_back(new Life("res/img/heart.png"));
+    }
+}
+
+vector<Life *> Player::getLife(){
+    return lifes;
+}
+
+
 
 
 

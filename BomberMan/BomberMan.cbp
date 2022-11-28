@@ -49,6 +49,7 @@
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameTile.h" />
 		<Unit filename="include/GameWord.h" />
+		<Unit filename="include/Life.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
@@ -58,6 +59,7 @@
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameTile.cpp" />
 		<Unit filename="src/GameWord.cpp" />
+		<Unit filename="src/Life.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Extensions />

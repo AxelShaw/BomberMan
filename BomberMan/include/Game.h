@@ -16,8 +16,6 @@ class Game
     private:
         float velocity = 3;
         FloatRect nextPos;
-        Text text[4];
-        Font font;
 
     public:
         Game();
@@ -34,7 +32,7 @@ class Game
         void setMouvement();
         void createExplosion(int x, int y, int range);
         vector<Explosion *> EploP;
-        Time secondEndBomb = seconds(5);
+        Time secondEndBomb = seconds(2);
         Time secondEndExp = milliseconds(350);
         void PlayerTouch();
         GameWord gameWord = GameWord();

@@ -4,6 +4,7 @@
 #include<iostream>
 #include <SFML/Graphics.hpp>
 #include<Bomb.h>
+#include<Life.h>
 
 using namespace sf;
 
@@ -15,6 +16,7 @@ class Player
     private:
         int rangeBomb;
         vector<Bomb *> bombs;
+        vector<Life*> lifes;
         int vie;
 
     public:
@@ -23,8 +25,10 @@ class Player
         int getRangeBomb();
         void setUpInitialState();
         vector<Bomb *> getBomb();
+        vector<Life *> getLife();
         int takeDamage();
         int getVie();
+        void setUpLife(int nb);
 };
 
 #endif // PLAYER_H

@@ -45,24 +45,9 @@ void Game::launchGame(RenderWindow& window)
     setImage();
 
     Player player1 = Player(1);
+    player1.setUpLife(3);
     Player player2 = Player(1);
-
-
-    if(!font.loadFromFile("res/fonts/OpenSans-Regular.ttf"))
-    {
-        //hadler error
-    }
-    for(int i=0; i < 4 ; i++){
-        text[i].setFont(font);
-        text[i].setColor(Color::White);
-    }
-    text[0].setString("Vie : ");
-    text[0].setPosition(10,0);
-    text[1].setString("Vie : ");
-    text[1].setPosition(650,605);
-    text[2].setPosition(75,1);
-    text[3].setPosition(715,606);
-
+    player2.setUpLife(3);
 
     while (window.isOpen())
     {
@@ -166,7 +151,8 @@ void Game::launchGame(RenderWindow& window)
                 player1.getBomb().clear();
                 player1.setUpInitialState();
                 player2.setUpInitialState();
-
+                player1.setUpLife(player1.getVie());
+                player2.setUpLife(player2.getVie());
             }
 
              if(spriteP2.getGlobalBounds().intersects(EploP[i]->sprite.getGlobalBounds())){
@@ -177,6 +163,8 @@ void Game::launchGame(RenderWindow& window)
                 player1.getBomb().clear();
                 player1.setUpInitialState();
                 player2.setUpInitialState();
+                player1.setUpLife(player1.getVie());
+                player2.setUpLife(player2.getVie());
             }
 
         }
@@ -188,10 +176,14 @@ void Game::launchGame(RenderWindow& window)
             window.close();
         }
 
-        for(int i=0; i < 4 ; i++){
-            text[2].setString(to_string(player1.getVie()));
-            text[3].setString(to_string(player2.getVie()));
-            window.draw(text[i]);
+        for(int i=0 ;i < player1.getLife().size(); i++){
+            player1.getLife()[i]->setPosition(5+50*i,5);
+            window.draw(player1.getLife()[i]->getSprite());
+        }
+
+        for(int i=0 ;i < player2.getLife().size(); i++){
+            player2.getLife()[i]->setPosition(605+50*i,605);
+            window.draw(player2.getLife()[i]->getSprite());
         }
 
         window.display();
