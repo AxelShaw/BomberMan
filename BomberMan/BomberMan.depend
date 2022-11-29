@@ -1394,7 +1394,7 @@
 	<SFML/Graphics.hpp>
 	"Menu.h"
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/main.cpp
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Menu.h>
@@ -1808,57 +1808,58 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Menu.h
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Menu.h
 	<SFML/Graphics.hpp>
+	<iostream>
+	<Game.h>
+	<About.h>
 
 1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
 	"About.h"
 	<SFML/Graphics.hpp>
 	"Menu.h"
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/About.h
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/About.h
 	<SFML/Graphics.hpp>
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/GameTile.cpp
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/GameTile.cpp
 	"GameTile.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/GameTile.h
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/GameTile.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/GameWord.cpp
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/GameWord.cpp
 	"GameWord.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/GameWord.h
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/GameWord.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<GameTile.h>
 	<vector>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Player.h
+1669647583 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Player.h
 	<string>
 	<iostream>
 	<SFML/Graphics.hpp>
 	<Bomb.h>
+	<Life.h>
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Menu.cpp
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Menu.cpp
 	"Menu.h"
-	<SFML/Graphics.hpp>
-	<iostream>
-	<Game.h>
-	<About.h>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
-	<SFML/Graphics.hpp>
+1669647583 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
+	<string>
 	<iostream>
-	<vector>
+	<SFML/Graphics.hpp>
+	<Explosion.h>
 	<GameWord.h>
 
-1669130058 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Player.cpp
+1669647583 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Player.cpp
 	"Player.h"
 	<string>
 	<iostream>
@@ -1871,13 +1872,12 @@
 	<GameWord.h>
 	<Player.h>
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
 	"Bomb.h"
 	<SFML/Graphics.hpp>
 	<iostream>
-	<Game.h>
 
-1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Bomb.h
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Bomb.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Game.h>
@@ -1992,6 +1992,22 @@
 	"Life.h"
 
 1669645170 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/Life.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<Game.h>
+
+1669641713 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Explosion.h
+	<SFML/Graphics.hpp>
+	<iostream>
+	<Game.h>
+
+1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Explosion.cpp
+	"Explosion.h"
+
+1669647583 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Life.cpp
+	"Life.h"
+
+1669647583 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Life.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Game.h>

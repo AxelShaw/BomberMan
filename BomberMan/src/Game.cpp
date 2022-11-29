@@ -198,19 +198,21 @@ void Game::launchGame(RenderWindow& window)
 
 void Game::setImage(){
 
-    if(!playerTexture1.loadFromFile("res/img/player.png"))
+    if(!playerTexture1.loadFromFile("res/img/P1_v3.png"))
     {
         //handler error image
     }
 
-    if(!playerTexture2.loadFromFile("res/img/player.png"))
+    if(!playerTexture2.loadFromFile("res/img/P2_v2.png"))
     {
         //handler error image
     }
 
+    spriteP1.setTextureRect(IntRect(0,0,30,35));
     spriteP1.setTexture(playerTexture1);
     spriteP1.setPosition(55,55);
 
+    spriteP2.setTextureRect(IntRect(0,0,30,35));
     spriteP2.setTexture(playerTexture2);
     spriteP2.setPosition(655,555);
 
@@ -220,15 +222,19 @@ void Game::setMouvement(){
     Vector2f movement2;
     if(Keyboard::isKeyPressed(Keyboard::Up)){
         movement2.y -=velocity;
+        spriteP2.setTextureRect(IntRect(60,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::Down)){
         movement2.y +=velocity;
+        spriteP2.setTextureRect(IntRect(0,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::Right)){
         movement2.x +=velocity;
+        spriteP2.setTextureRect(IntRect(30,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::Left)){
         movement2.x -=velocity;
+        spriteP2.setTextureRect(IntRect(90,0,30,35));
     }
 
     for(int i = 0 ; i<gameWord.gridHeight; i++){
@@ -251,15 +257,19 @@ void Game::setMouvement(){
     Vector2f movement;
     if(Keyboard::isKeyPressed(Keyboard::Z)){
         movement.y -=velocity;
+        spriteP1.setTextureRect(IntRect(60,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::S)){
         movement.y +=velocity;
+        spriteP1.setTextureRect(IntRect(0,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::D)){
         movement.x +=velocity;
+        spriteP1.setTextureRect(IntRect(30,0,30,35));
     }
     if(Keyboard::isKeyPressed(Keyboard::Q)){
         movement.x -=velocity;
+        spriteP1.setTextureRect(IntRect(90,0,30,35));
     }
 
     for(int i = 0 ; i<gameWord.gridHeight; i++){
