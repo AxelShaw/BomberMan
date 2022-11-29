@@ -52,6 +52,7 @@
 		<Unit filename="include/Life.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/VictoryView.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/About.cpp" />
 		<Unit filename="src/Bomb.cpp" />
@@ -62,6 +63,7 @@
 		<Unit filename="src/Life.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/VictoryView.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

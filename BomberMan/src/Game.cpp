@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 #include<Player.h>
-#include<Ending.h>
 #include<Menu.h>
+#include<VictoryView.h>
 
 
 using namespace sf;
@@ -51,22 +51,6 @@ void Game::launchGame(RenderWindow& window)
     Player player2 = Player(1);
     player2.setUpLife(3);
 
-    text[0].setFont(font);
-    text[0].setColor(Color::Red);
-    text[0].setString("Player 1 win !");
-    text[0].setPosition(Vector2f(300,10));
-
-    text[1].setFont(font);
-    text[1].setColor(Color::Blue);
-    text[1].setString("Player 2 win !");
-    text[1].setPosition(Vector2f(300,10));
-
-    text[2].setFont(font);
-    text[2].setColor(Color::White);
-    text[2].setString("Press Escape to restart game");
-    text[2].setPosition(Vector2f(200,300));
-
-
     while (window.isOpen())
     {
         Event event;
@@ -77,7 +61,6 @@ void Game::launchGame(RenderWindow& window)
             }
             if(Keyboard::isKeyPressed(Keyboard::Escape)){
                 window.close();
-                StartMenu(window);
             }
 
             if (event.type == Event::KeyPressed)
@@ -189,16 +172,17 @@ void Game::launchGame(RenderWindow& window)
         }
 
         if(player1.getVie() == 0){
-            window.clear();
-            window.draw(text[1]);
-            window.draw(text[2]);
+            window.close();
+            RenderWindow windowWin(VideoMode(750, 650), "BomberMan - Win");
+            VictoryView victory;
+            victory.launchVictory(windowWin,"res/img/P2_v3.png");
 
         }
         if(player2.getVie() == 0){
-            window.clear();
-            window.draw(text[0]);
-            window.draw(text[2]);
-
+            window.close();
+            RenderWindow windowWin(VideoMode(750, 650), "BomberMan - Win");
+            VictoryView victory;
+            victory.launchVictory(windowWin,"res/img/P1_v3.png");
         }
 
         for(int i=0 ;i < player1.getLife().size(); i++){
@@ -395,15 +379,4 @@ void Game::PlayerTouch(){
     spriteP2.setPosition(655,555);
     gameWord = GameWord();
 }
-void Game::StartEnding(RenderWindow& window){
-    window.close();
-    RenderWindow windowEnding(VideoMode(1400, 800), "BomberMan - Ending");
-    Ending ending;
-    ending.launchEnding(windowEnding);
-}
-void Game::StartMenu(RenderWindow& window){
-    window.close();
-    RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - Game");
-    Menu menu(1400,800);
-    menu.launchMenu(windowMenu);
-}
+

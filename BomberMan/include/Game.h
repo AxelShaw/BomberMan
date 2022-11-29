@@ -33,8 +33,6 @@ class Game
         void MoveLeft(Sprite spritePs);
         void setMouvement();
         void createExplosion(int x, int y, int range);
-        void StartEnding(RenderWindow& window);
-        void StartMenu(RenderWindow& window);
         vector<Explosion *> EploP;
         Time secondEndBomb = seconds(2);
         Time secondEndExp = milliseconds(350);

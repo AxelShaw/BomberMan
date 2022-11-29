@@ -1914,7 +1914,7 @@
 	<Game.h>
 	<About.h>
 
-1669215682 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
+1669736686 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
 	"About.h"
 	<SFML/Graphics.hpp>
 	"Menu.h"
@@ -1922,7 +1922,7 @@
 1669479121 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/About.h
 	<SFML/Graphics.hpp>
 
-1669479526 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
+1669738326 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
 	"Bomb.h"
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -1932,7 +1932,7 @@
 	<iostream>
 	<Game.h>
 
-1669646817 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/Game.h
+1669736911 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/Game.h
 	<string>
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -1957,12 +1957,14 @@
 1669479438 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/Explosion.cpp
 	"Explosion.h"
 
-1669646620 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
+1669738497 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 	<vector>
 	<Player.h>
+	<Menu.h>
+	<VictoryView.h>
 
 1669646131 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/Player.h
 	<string>
@@ -2021,4 +2023,14 @@
 
 1669727226 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Ending.h
 	<SFML/Graphics.hpp>
+
+1669736686 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/Ending.h
+	<SFML/Graphics.hpp>
+
+1669738437 source:/home/axelshaw/Documents/GitHub/BomberMan/BomberMan/src/VictoryView.cpp
+	"VictoryView.h"
+
+1669738358 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/VictoryView.h
+	<SFML/Graphics.hpp>
+	<iostream>
 

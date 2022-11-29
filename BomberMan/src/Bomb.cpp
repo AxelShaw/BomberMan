@@ -23,8 +23,8 @@ bool Bomb::setUpSprite(string textureName){
         {
             //handler error image
         }
-        texture.setSmooth(true);
-        sprite.setTexture(texture);
+    texture.setSmooth(true);
+    sprite.setTexture(texture);
     return true;
 }
 
