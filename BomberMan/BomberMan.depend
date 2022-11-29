@@ -1814,7 +1814,7 @@
 	<Game.h>
 	<About.h>
 
-1669130004 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
+1669726716 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
 	"About.h"
 	<SFML/Graphics.hpp>
 	"Menu.h"
@@ -1852,7 +1852,7 @@
 1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Menu.cpp
 	"Menu.h"
 
-1669647583 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
+1669730976 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
 	<string>
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -1865,12 +1865,14 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1669130249 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
+1669731317 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
 	<iostream>
-	<GameWord.h>
+	<vector>
 	<Player.h>
+	<Ending.h>
+	<Menu.h>
 
 1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
 	"Bomb.h"
@@ -2011,4 +2013,12 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 	<Game.h>
+
+1669727581 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Ending.cpp
+	"Ending.h"
+	<SFML/Graphics.hpp>
+	"Menu.h"
+
+1669727226 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Ending.h
+	<SFML/Graphics.hpp>
 

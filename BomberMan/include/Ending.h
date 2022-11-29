@@ -4,21 +4,21 @@
 
 using namespace sf;
 
-class ending
+
+class Ending
 {
 
 
     private:
-        Text text[1];
+        Text text[2];
         Font font;
 
 
     public:
-        ending();
-        virtual ~ending();
-        void launchAbout(RenderWindow& window);
+        Ending();
+        virtual ~Ending();
+        void launchEnding(RenderWindow& window);
         void StartMenu(RenderWindow& window);
-
 
 };
 
