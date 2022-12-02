@@ -19,6 +19,8 @@ class Game
         Text text[3];
         Font font;
 
+
+
     public:
         Game();
         virtual ~Game();
@@ -38,6 +40,7 @@ class Game
         Time secondEndExp = milliseconds(350);
         void PlayerTouch();
         GameWord gameWord = GameWord();
+        void StartMenu(RenderWindow& window);
 };
 
 #endif // GAME_H

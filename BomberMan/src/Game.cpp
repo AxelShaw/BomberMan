@@ -1,10 +1,12 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <vector>
 #include<Player.h>
 #include<Menu.h>
 #include<VictoryView.h>
+
 
 
 using namespace sf;
@@ -14,6 +16,9 @@ Texture playerTexture2;
 
 Sprite spriteP1;
 Sprite spriteP2;
+//Music music;
+
+
 
 Game::Game()
 {
@@ -51,6 +56,7 @@ void Game::launchGame(RenderWindow& window)
     Player player2 = Player(1);
     player2.setUpLife(3);
 
+
     while (window.isOpen())
     {
         Event event;
@@ -61,6 +67,7 @@ void Game::launchGame(RenderWindow& window)
             }
             if(Keyboard::isKeyPressed(Keyboard::Escape)){
                 window.close();
+                StartMenu(window);
             }
 
             if (event.type == Event::KeyPressed)
@@ -132,6 +139,7 @@ void Game::launchGame(RenderWindow& window)
 
         window.draw(spriteP1);
         window.draw(spriteP2);
+
 
         for(int i=0; i < EploP.size() ; i++){
             window.draw(EploP[i]->sprite);
@@ -220,6 +228,13 @@ void Game::setImage(){
     {
         //handler error image
     }
+//    if (!music.openFromFile("musicbattle.wav")){
+
+//    }
+
+
+
+
 
     spriteP1.setTextureRect(IntRect(0,0,30,35));
     spriteP1.setTexture(playerTexture1);
@@ -378,5 +393,11 @@ void Game::PlayerTouch(){
     spriteP1.setPosition(55,55);
     spriteP2.setPosition(655,555);
     gameWord = GameWord();
+}
+void Game::StartMenu(RenderWindow& window){
+    window.close();
+    RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - Menu");
+    Menu menu(Width,Height);
+    menu.launchMenu(windowMenu);
 }
 

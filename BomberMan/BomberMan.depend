@@ -1814,7 +1814,7 @@
 	<Game.h>
 	<About.h>
 
-1669726716 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
+1669996436 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/About.cpp
 	"About.h"
 	<SFML/Graphics.hpp>
 	"Menu.h"
@@ -1852,7 +1852,7 @@
 1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Menu.cpp
 	"Menu.h"
 
-1669730976 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
+1669996522 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/Game.h
 	<string>
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -1865,16 +1865,17 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1669731317 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
+1669996569 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Game.cpp
 	"Game.h"
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	<iostream>
 	<vector>
 	<Player.h>
-	<Ending.h>
 	<Menu.h>
+	<VictoryView.h>
 
-1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
+1669990344 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Bomb.cpp
 	"Bomb.h"
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -2005,7 +2006,7 @@
 	<iostream>
 	<Game.h>
 
-1669641713 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Explosion.cpp
+1669996862 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Explosion.cpp
 	"Explosion.h"
 
 1669647583 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/Life.cpp
@@ -2033,4 +2034,116 @@
 1669738358 /home/axelshaw/Documents/GitHub/BomberMan/BomberMan/include/VictoryView.h
 	<SFML/Graphics.hpp>
 	<iostream>
+
+1669996396 /home/clymento/Documents/GitHub/BomberMan/BomberMan/include/VictoryView.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1669996456 source:/home/clymento/Documents/GitHub/BomberMan/BomberMan/src/VictoryView.cpp
+	"VictoryView.h"
+	"Menu.h"
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/InputSoundFile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<algorithm>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/Export.hpp
+	<SFML/Config.hpp>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/Listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/Music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundStream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundSource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/AlResource.hpp
+	<SFML/Audio/Export.hpp>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/OutputSoundFile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/Sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundBuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundBufferRecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundRecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundFileFactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundFileFactory.inl
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundFileReader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1669130004 /home/clymento/Documents/GitHub/BomberMan/BomberMan/SFML-2.5.1/include/SFML/Audio/SoundFileWriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
 

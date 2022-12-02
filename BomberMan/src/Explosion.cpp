@@ -2,7 +2,7 @@
 
 Explosion::Explosion()
 {
-    if(!setUpSprite("res/img/macron_explosion.png")){
+    if(!setUpSprite("res/img/explosion.png")){
             //error texture load
     }
 

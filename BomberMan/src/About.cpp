@@ -118,7 +118,7 @@ void About::launchAbout(RenderWindow& window)
 
 void About::StartMenu(RenderWindow& window){
     window.close();
-    RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - About");
+    RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - Menu");
     Menu menu(Width,Height);
     menu.launchMenu(windowMenu);
 }
