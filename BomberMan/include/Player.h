@@ -29,6 +29,8 @@ class Player
         int takeDamage();
         int getVie();
         void setUpLife(int nb);
+        void addBomb();
+        void addRangeBomb();
 };
 
 #endif // PLAYER_H

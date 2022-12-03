@@ -1,6 +1,8 @@
 #include "GameTile.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace sf;
 
@@ -41,6 +43,30 @@ string GameTile::getTextureName(){
 }
 
 void GameTile::SetTextureName(){
+    int v1 = rand() % 6;
+
+    if(v1 == 0){
+        textureName = "res/img/BombBonus.png";
+    }else{
+        if(v1 == 1){
+            textureName = "res/img/RangeBonus.png";
+        }else{
+            textureName = "res/img/grass.png";
+        }
+    }
+
+    if(!texture.loadFromFile(textureName))
+    {
+        //handler error image
+    }
+    texture.setSmooth(true);
+    sprite.setTexture(texture);
+    sprite.setTextureRect(IntRect(0,0,50,50));
+    isPassable = true;
+}
+
+void GameTile::SetTextureGrass(){
+
     textureName = "res/img/grass.png";
 
     if(!texture.loadFromFile(textureName))

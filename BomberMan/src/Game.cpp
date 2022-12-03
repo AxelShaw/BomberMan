@@ -160,8 +160,6 @@ void Game::launchGame(RenderWindow& window)
                 player2 = Player(1, player2.getVie());
                 player2.getBomb().clear();
                 player1.getBomb().clear();
-                player1.setUpInitialState();
-                player2.setUpInitialState();
                 player1.setUpLife(player1.getVie());
                 player2.setUpLife(player2.getVie());
             }
@@ -172,8 +170,6 @@ void Game::launchGame(RenderWindow& window)
                 player2 = Player(1, player2.takeDamage());
                 player2.getBomb().clear();
                 player1.getBomb().clear();
-                player1.setUpInitialState();
-                player2.setUpInitialState();
                 player1.setUpLife(player1.getVie());
                 player2.setUpLife(player2.getVie());
             }
@@ -202,6 +198,27 @@ void Game::launchGame(RenderWindow& window)
         for(int i=0 ;i < player2.getLife().size(); i++){
             player2.getLife()[i]->setPosition(605+50*i,605);
             window.draw(player2.getLife()[i]->getSprite());
+        }
+
+        for(int i = 0 ; i<gameWord.gridHeight; i++){
+            for(int j = 0 ; j<gameWord.gridLenght; j++){
+                if(gameWord.getTiles()[i][j]->getTextureName() == "res/img/RangeBonus.png" && spriteP1.getGlobalBounds().intersects(gameWord.getTiles()[i][j]->getSprite().getGlobalBounds())){
+                    gameWord.getTiles()[i][j]->SetTextureGrass();
+                    player1.addRangeBomb();
+                }
+                if(gameWord.getTiles()[i][j]->getTextureName() == "res/img/BombBonus.png" && spriteP1.getGlobalBounds().intersects(gameWord.getTiles()[i][j]->getSprite().getGlobalBounds())){
+                    gameWord.getTiles()[i][j]->SetTextureGrass();
+                    player1.addBomb();
+                }
+                if(gameWord.getTiles()[i][j]->getTextureName() == "res/img/RangeBonus.png" && spriteP2.getGlobalBounds().intersects(gameWord.getTiles()[i][j]->getSprite().getGlobalBounds())){
+                    gameWord.getTiles()[i][j]->SetTextureGrass();
+                    player2.addRangeBomb();
+                }
+                if(gameWord.getTiles()[i][j]->getTextureName() == "res/img/BombBonus.png" && spriteP2.getGlobalBounds().intersects(gameWord.getTiles()[i][j]->getSprite().getGlobalBounds())){
+                    gameWord.getTiles()[i][j]->SetTextureGrass();
+                    player2.addBomb();
+                }
+            }
         }
 
         window.display();

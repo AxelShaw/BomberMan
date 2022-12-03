@@ -21,10 +21,16 @@ Player::~Player()
 
 void Player::setUpInitialState(){
     bombs.push_back(new Bomb("res/img/bomb.png",false));
+}
+void Player::addBomb(){
     bombs.push_back(new Bomb("res/img/bomb.png",false));
 }
 int Player::getRangeBomb(){
     return rangeBomb;
+}
+
+void Player::addRangeBomb(){
+    rangeBomb += 1;
 }
 
 vector<Bomb *> Player::getBomb(){

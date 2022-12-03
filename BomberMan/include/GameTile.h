@@ -24,6 +24,7 @@ class GameTile
         bool getPassable();
         string getTextureName();
         void SetTextureName();
+        void SetTextureGrass();
 };
 
 #endif // GAMETILE_H
