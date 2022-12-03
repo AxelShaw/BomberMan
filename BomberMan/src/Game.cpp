@@ -69,7 +69,7 @@ void Game::launchGame(RenderWindow& window)
                 window.close();
                 StartMenu(window);
             }
-
+            //draw a bomb
             if (event.type == Event::KeyPressed)
             {
                 if (event.key.code == Keyboard::Space)
@@ -140,7 +140,8 @@ void Game::launchGame(RenderWindow& window)
         window.draw(spriteP1);
         window.draw(spriteP2);
 
-
+        //draw explosion and make collision with player
+        //if the player touch explosion he lost a life
         for(int i=0; i < EploP.size() ; i++){
             window.draw(EploP[i]->sprite);
             if(EploP[i]->clock.getElapsedTime() > secondEndExp){
@@ -176,9 +177,9 @@ void Game::launchGame(RenderWindow& window)
                 player1.setUpLife(player1.getVie());
                 player2.setUpLife(player2.getVie());
             }
-
         }
 
+        //open victory view when the life of the player is equals to 0
         if(player1.getVie() == 0){
             window.close();
             RenderWindow windowWin(VideoMode(750, 650), "BomberMan - Win");
@@ -213,6 +214,7 @@ void Game::launchGame(RenderWindow& window)
 
 }
 
+//load texture for image
 void Game::setImage(){
 
     if(!playerTexture1.loadFromFile("res/img/P1_v3.png"))
@@ -246,6 +248,8 @@ void Game::setImage(){
 
 }
 
+
+//set mouvement of the player and make collision
 void Game::setMouvement(){
     Vector2f movement2;
     if(Keyboard::isKeyPressed(Keyboard::Up)){
@@ -318,6 +322,7 @@ void Game::setMouvement(){
     spriteP1.move(movement);
 }
 
+//creation of an explosion
 void Game::createExplosion(int x, int y, int range){
     bool end1 = false;
     bool end2 = false;
@@ -387,13 +392,14 @@ void Game::createExplosion(int x, int y, int range){
         }
     }
 }
-
+//make a new spawn for a player wwhen he die
 void Game::PlayerTouch(){
     EploP.clear();
     spriteP1.setPosition(55,55);
     spriteP2.setPosition(655,555);
     gameWord = GameWord();
 }
+//start menu
 void Game::StartMenu(RenderWindow& window){
     window.close();
     RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - Menu");

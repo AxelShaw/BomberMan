@@ -17,7 +17,7 @@ GameWord::~GameWord()
 }
 
 
-
+//creation of the map with unbreakable wall
 void GameWord::setUpTiles(){
     vector<vector<int> > boxplacemnt(gridLenght, vector<int> (gridHeight));
     setUpVectorBox(boxplacemnt);
@@ -64,7 +64,7 @@ void GameWord::setUpTiles(){
     }
     tiles.push_back(Row);
 }
-
+//creation of the map with destructible box
 void GameWord::setUpVectorBox(vector<vector<int> >& v){
     for(int i = 1; i < gridLenght-1; i=i+2){
         if(i == 1 || i == gridHeight-2){
