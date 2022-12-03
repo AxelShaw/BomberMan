@@ -16,8 +16,6 @@ class Game
     private:
         float velocity = 3;
         FloatRect nextPos;
-        Text text[3];
-        Font font;
 
 
 

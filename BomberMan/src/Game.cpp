@@ -221,22 +221,11 @@ void Game::setImage(){
     {
         //handler error image
     }
-    if(!font.loadFromFile("res/fonts/OpenSans-Regular.ttf"))
-    {
-        //hadler error
-    }
 
     if(!playerTexture2.loadFromFile("res/img/P2_v3.png"))
     {
         //handler error image
     }
-//    if (!music.openFromFile("musicbattle.wav")){
-
-//    }
-
-
-
-
 
     spriteP1.setTextureRect(IntRect(0,0,30,35));
     spriteP1.setTexture(playerTexture1);
@@ -392,7 +381,7 @@ void Game::createExplosion(int x, int y, int range){
         }
     }
 }
-//make a new spawn for a player wwhen he die
+//make a new spawn for a player when he die
 void Game::PlayerTouch(){
     EploP.clear();
     spriteP1.setPosition(55,55);
