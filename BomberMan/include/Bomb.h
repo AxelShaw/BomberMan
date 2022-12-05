@@ -16,13 +16,20 @@ class Bomb
         Sprite sprite;
 
     public:
+        //set texture and pce or not
         Bomb(string textureName, bool place);
         virtual ~Bomb();
+        //setup sprite
         bool setUpSprite(string textureName);
+        //get sprite
         Sprite getSprite();
+        //set sprite's position
         void setPosition(int x , int y);
+        //get place
         bool getPlace();
+        //set place
         void setPlace(bool change);
+        //clock time
         Clock clock;
 };
 

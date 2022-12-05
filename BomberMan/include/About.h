@@ -17,7 +17,9 @@ class About
         virtual ~About();
         About(const About& other);
         About& operator=(const About& other);
+        //launch about window
         void launchAbout(RenderWindow& window);
+        //launch menu window
         void StartMenu(RenderWindow& window);
 };
 

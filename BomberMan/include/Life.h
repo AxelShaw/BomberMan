@@ -11,10 +11,14 @@ class Life
         bool place;
         Sprite sprite;
     public:
+    //texture life
         Life(string textureName);
         virtual ~Life();
+        //set up texture life
         bool setUpSprite(string textureName);
+        //get life's sprite
         Sprite getSprite();
+        //set position sprite's life
         void setPosition(int x , int y);
 };
 

@@ -17,7 +17,9 @@ class VictoryView
     public:
         VictoryView();
         virtual ~VictoryView();
+        //start victory view whit window and texture player win
         void launchVictory(RenderWindow& window,string textureName);
+        //start menu window
         void StartMenu(RenderWindow& window);
 };
 

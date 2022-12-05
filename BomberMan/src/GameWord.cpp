@@ -17,8 +17,10 @@ GameWord::~GameWord()
 }
 
 
-//creation of the map with unbreakable wall
+//creation of the map with unbreakable wall and bow and grass
+//set up box and garss and wall in tiles
 void GameWord::setUpTiles(){
+    //set tableau for placemnt of box
     vector<vector<int> > boxplacemnt(gridLenght, vector<int> (gridHeight));
     setUpVectorBox(boxplacemnt);
     tiles.clear();
@@ -64,6 +66,7 @@ void GameWord::setUpTiles(){
     }
     tiles.push_back(Row);
 }
+
 //creation of the map with destructible box
 void GameWord::setUpVectorBox(vector<vector<int> >& v){
     for(int i = 1; i < gridLenght-1; i=i+2){
@@ -103,6 +106,7 @@ void GameWord::setUpVectorBox(vector<vector<int> >& v){
     }
 }
 
+//get tiles
 vector< vector<GameTile *>> GameWord::getTiles(){
     return tiles;
 }

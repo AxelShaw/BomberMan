@@ -8,9 +8,6 @@ using namespace sf;
 About::About()
 {
 
-
-
-
 }
 
 About::~About()
@@ -32,19 +29,23 @@ About& About::operator=(const About& rhs)
 
 void About::launchAbout(RenderWindow& window)
 {
+    //cretate a rectangle for view
     RectangleShape rect;
 
+    //set the position of the rectangle and the color
     Vector2f rectP(300,150);
     rect.setPosition(rectP);
     rect.setFillColor(sf::Color (255, 229, 204));
     rect.setSize(Vector2f(800,500));
     rect.setOutlineThickness(10);
 
+    //load the font forthe text
     if(!font.loadFromFile("res/fonts/OpenSans-Regular.ttf"))
     {
         //hadler error
     }
 
+    //set text with the font and the position on the screen
     text[0].setFont(font);
     text[0].setColor(Color::Black);
     text[0].setString("Control player 1 :");
@@ -88,6 +89,7 @@ void About::launchAbout(RenderWindow& window)
     // 60fps
     window.setFramerateLimit(60);
 
+    //draw element and press key event when the window is open
     while (window.isOpen())
     {
         Event event;
@@ -122,9 +124,12 @@ void About::launchAbout(RenderWindow& window)
     }
 }
 
+//methode for start the menu
 void About::StartMenu(RenderWindow& window){
-    window.close();
+    //create window for menu
     RenderWindow windowMenu(VideoMode(1400, 800), "BomberMan - Menu");
+    //create menu
     Menu menu(Width,Height);
+    //launch menu
     menu.launchMenu(windowMenu);
 }

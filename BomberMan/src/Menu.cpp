@@ -3,29 +3,34 @@
 
 using namespace sf;
 
+//create texture and sprite for background
 Texture bgTexture;
 
 Sprite bgSprite;
 
+//taille dela fenetre
 const int WidthGame = 750;
 const int HeightGame = 650;
 
 Menu::Menu(float width, float height)
 {
+    //load font for text
     if(!font.loadFromFile("res/fonts/OpenSans-Regular.ttf"))
     {
         //hadler error
     }
 
+    //load background
     if(!bgTexture.loadFromFile("res/img/FontMenu.jpg"))
     {
         //handler error image
     }
 
+    //set up texture for background
     bgSprite.setTexture(bgTexture);
 
 
-
+    //set font and color and position for text
     menuText[0].setFont(font);
     menuText[0].setColor(Color::Red);
     menuText[0].setString("Play");
@@ -41,6 +46,7 @@ Menu::Menu(float width, float height)
     menuText[2].setString("Exit");
     menuText[2].setPosition(Vector2f(width / 2, height / (MAX + 1) * 3));
 
+    //item selected by user
     selectItem = 0;
 
 }
@@ -49,7 +55,7 @@ Menu::~Menu()
 {
     //dtor
 }
-
+//launch menu
 void Menu::launchMenu(RenderWindow& window)
 {
     // 60fps
@@ -57,15 +63,18 @@ void Menu::launchMenu(RenderWindow& window)
 
     while (window.isOpen())
     {
+        //event and key event in menu for select elemnt of the menu ( play, about, exit)
         Event event;
         while (window.pollEvent(event))
         {
             switch (event.type){
                 case Event::KeyReleased:
                     switch(event.key.code){
+                    //press up for move up in menu
                         case Keyboard::Up:
                             moveUp();
                             break;
+                    //press down for move down in menu
                         case Keyboard::Down:
                             MoveDown();
                             break;
@@ -98,8 +107,10 @@ void Menu::launchMenu(RenderWindow& window)
 
         window.clear();
 
+        //draw background
         window.draw(bgSprite);
 
+        //draw text
         for(int i = 0; i < MAX; i++){
             window.draw(menuText[i]);
         }
@@ -107,6 +118,7 @@ void Menu::launchMenu(RenderWindow& window)
     }
 }
 
+//movement up for select element in menu
 void Menu::moveUp(){
     if(selectItem -1 >= 0){
         menuText[selectItem].setColor(Color::White);
@@ -115,6 +127,7 @@ void Menu::moveUp(){
 
     }
 }
+//movement down for select element in menu
 void Menu::MoveDown(){
 
     if(selectItem +1 < MAX){

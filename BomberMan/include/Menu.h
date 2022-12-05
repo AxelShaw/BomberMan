@@ -20,13 +20,20 @@ class Menu
         Text menuText[MAX];
 
     public:
+        //whight window
         Menu(float width, float height);
         virtual ~Menu();
+        //launch menu
         void launchMenu(RenderWindow& window);
+        //move up in menu when key press
         void moveUp();
+        //move down in menu when key press
         void MoveDown();
+        //get select item in menu
         int GetPressedItem();
+        //start game window
         void StartGame(RenderWindow& window);
+        //start About window
         void StartAbout(RenderWindow& window);
 };
 

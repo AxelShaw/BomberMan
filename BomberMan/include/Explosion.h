@@ -17,11 +17,16 @@ class Explosion
     public:
         Explosion();
         virtual ~Explosion();
+        //set up texture and sprite
         bool setUpSprite(string textureName);
         Sprite sprite;
+        //clock time for explosion animation
         Clock clock;
+        //time next animation time
         Time anime = milliseconds(50);
+        //get pos X in image
         int getXpos();
+        //set pos x in image
         void setXpos(int x);
 };
 

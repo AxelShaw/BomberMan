@@ -2,11 +2,10 @@
 
 Explosion::Explosion()
 {
+    //laod sprite for the  explosion
     if(!setUpSprite("res/img/explosion.png")){
             //error texture load
     }
-
-    sprite.setPosition(100,100);
 }
 
 Explosion::~Explosion()
@@ -14,6 +13,7 @@ Explosion::~Explosion()
     //dtor
 }
 
+//set up texture and sprite of the explosion
 bool Explosion::setUpSprite(string textureName){
     if(!texture.loadFromFile(textureName))
         {
@@ -24,10 +24,12 @@ bool Explosion::setUpSprite(string textureName){
     return true;
 }
 
+//get the position of the explosion
 int Explosion::getXpos(){
     return xpos;
 }
 
+//set the posision in the axe X for done animation
 void Explosion::setXpos(int x){
     this->xpos = x;
 }
