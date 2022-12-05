@@ -77,8 +77,13 @@ void About::launchAbout(RenderWindow& window)
 
     text[6].setFont(font);
     text[6].setColor(Color::Black);
-    text[6].setString(" Press Escape for leave window...");
-    text[6].setPosition(Vector2f(700/2,550));
+    text[6].setString("Press Escape to leave window");
+    text[6].setPosition(Vector2f(700/2,600));
+
+    text[7].setFont(font);
+    text[7].setColor(Color::Black);
+    text[7].setString("Press Delete to cut music");
+    text[7].setPosition(Vector2f(700/2,550));
 
     // 60fps
     window.setFramerateLimit(60);
@@ -112,6 +117,7 @@ void About::launchAbout(RenderWindow& window)
         window.draw(text[4]);
         window.draw(text[5]);
         window.draw(text[6]);
+        window.draw(text[7]);
         window.display();
     }
 }

@@ -9,7 +9,7 @@ class About
 {
     private:
         RectangleShape rect;
-        Text text[7];
+        Text text[8];
         Font font;
 
     public:

@@ -16,7 +16,7 @@ Texture playerTexture2;
 
 Sprite spriteP1;
 Sprite spriteP2;
-//Music music;
+Music music;
 
 
 
@@ -51,6 +51,7 @@ void Game::launchGame(RenderWindow& window)
 
     setImage();
 
+
     Player player1 = Player(1);
     player1.setUpLife(3);
     Player player2 = Player(1);
@@ -60,18 +61,34 @@ void Game::launchGame(RenderWindow& window)
     while (window.isOpen())
     {
         Event event;
+
         while (window.pollEvent(event))
         {
             if(event.type == Event::Closed){
                 window.close();
             }
             if(Keyboard::isKeyPressed(Keyboard::Escape)){
+                music.stop();
                 window.close();
                 StartMenu(window);
+
             }
-            //draw a bomb
+
+
             if (event.type == Event::KeyPressed)
             {
+                if(Keyboard::isKeyPressed(Keyboard::Delete)){
+
+                    if(music.getStatus()==SoundSource::Status::Playing ){
+                        music.pause();
+                    }
+                    else if(music.getStatus()==SoundSource::Status::Paused ){
+                        music.play();
+                    }
+
+                }
+
+                //draw a bomb
                 if (event.key.code == Keyboard::Space)
                 {
                     for(int i = 0 ; i<gameWord.gridHeight; i++){
@@ -109,6 +126,7 @@ void Game::launchGame(RenderWindow& window)
         }
 
         setMouvement();
+
 
         window.clear();
 
@@ -243,6 +261,13 @@ void Game::setImage(){
     {
         //handler error image
     }
+    if (!music.openFromFile("res/audio/musicbattle.wav")){
+    // erreur
+    }
+    music.play();
+    music.setLoop(true);
+    music.setVolume(50);
+
 
     spriteP1.setTextureRect(IntRect(0,0,30,35));
     spriteP1.setTexture(playerTexture1);
